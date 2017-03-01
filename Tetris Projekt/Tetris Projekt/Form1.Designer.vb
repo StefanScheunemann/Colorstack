@@ -22,6 +22,7 @@ Partial Class Form1
     'Das Bearbeiten mit dem Code-Editor ist nicht möglich.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.cmdLinks = New System.Windows.Forms.Button()
         Me.cmdUnten = New System.Windows.Forms.Button()
         Me.cmdRechts = New System.Windows.Forms.Button()
@@ -29,6 +30,7 @@ Partial Class Form1
         Me.PanLinks = New System.Windows.Forms.Panel()
         Me.PanRechts = New System.Windows.Forms.Panel()
         Me.PanUnten = New System.Windows.Forms.Panel()
+        Me.timer = New System.Windows.Forms.Timer(Me.components)
         Me.SuspendLayout()
         '
         'cmdLinks
@@ -91,6 +93,10 @@ Partial Class Form1
         Me.PanUnten.Size = New System.Drawing.Size(160, 1)
         Me.PanUnten.TabIndex = 0
         '
+        'timer
+        '
+        Me.timer.Interval = 500
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
@@ -116,4 +122,5 @@ Partial Class Form1
     Friend WithEvents PanLinks As Panel
     Friend WithEvents PanRechts As Panel
     Friend WithEvents PanUnten As Panel
+    Friend WithEvents timer As Timer
 End Class

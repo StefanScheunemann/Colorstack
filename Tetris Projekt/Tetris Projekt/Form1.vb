@@ -73,17 +73,49 @@
         PS = 5
     End Sub
 
-    Private Sub timT_Tick(sender As Object, e As EventArgs) Handles timT.Tick
+    Private Sub timer_Tick(sender As Object, e As EventArgs) Handles timer.Tick
         If F(PZ + 1, PS) <> Leer Then ' Falls keine Panels erstellt werden können
             If PZ = 1 Then ' Falls oberste Zeile erreicht
-                timT_Tick.Enabled = False
+                timer.Enabled = False
                 MessageBox.Show("Game Over")
                 Exit Sub
             End If
 
             F(PZ, PS) = PX ' Panel Belegen
-            AllePrüfen()
-            NächstesPanel()
+
+        Else
+            PL(PX).Top = PL(PX).Top + 20 ' Falls Felder frei
+            PZ = PZ + 1
         End If
+    End Sub
+
+    Private Sub cmdLinks_Click(sender As Object, e As EventArgs) Handles cmdLinks.Click
+        If F(PZ, PS - 1) = Leer Then
+            PL(PX).Left = PL(PX).Left - 20
+            PS = PS - 1
+        End If
+    End Sub
+
+    Private Sub cmdRechts_Click(sender As Object, e As EventArgs) Handles cmdRechts.Click
+        If F(PZ, PS + 1) = Leer Then
+            PL(PX).Left = PL(PX).Left + 20
+            PS = PS + 1
+        End If
+    End Sub
+
+    Private Sub cmdUnten_Click(sender As Object, e As EventArgs) Handles cmdUnten.Click
+        Do While F(PZ + 1, PS) = Leer
+            PL(PX).Top = PL(PX).Top + 20
+            PZ = PZ + 1
+        Loop
+        F(PZ, PS) = PX ' Feld mit Panel belegen
+    End Sub
+
+    Private Sub cmdPause_Click(sender As Object, e As EventArgs) Handles cmdPause.Click
+        timer.Enabled = Not timer.Enabled
+    End Sub
+
+    Private Sub cmdLinks_KeyPress(sender As Object, e As KeyPressEventArgs) Handles cmdLinks.KeyPress
+
     End Sub
 End Class
