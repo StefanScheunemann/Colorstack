@@ -1,0 +1,11 @@
+c:\users\stefan\documents\visual studio 2015\Projects\Tetris Projekt\Tetris Projekt\bin\Debug\Tetris Projekt.exe.config
+c:\users\stefan\documents\visual studio 2015\Projects\Tetris Projekt\Tetris Projekt\obj\Debug\Tetris Projekt.vbprojResolveAssemblyReference.cache
+c:\users\stefan\documents\visual studio 2015\Projects\Tetris Projekt\Tetris Projekt\obj\Debug\Tetris_Projekt.Form1.resources
+c:\users\stefan\documents\visual studio 2015\Projects\Tetris Projekt\Tetris Projekt\obj\Debug\Tetris_Projekt.Resources.resources
+c:\users\stefan\documents\visual studio 2015\Projects\Tetris Projekt\Tetris Projekt\obj\Debug\Tetris Projekt.vbproj.GenerateResource.Cache
+c:\users\stefan\documents\visual studio 2015\Projects\Tetris Projekt\Tetris Projekt\obj\Debug\Tetris Projekt.xml
+C:\Users\Stefan\documents\visual studio 2015\Projects\Tetris Projekt\Tetris Projekt\bin\Debug\Tetris Projekt.exe
+C:\Users\Stefan\documents\visual studio 2015\Projects\Tetris Projekt\Tetris Projekt\bin\Debug\Tetris Projekt.pdb
+C:\Users\Stefan\documents\visual studio 2015\Projects\Tetris Projekt\Tetris Projekt\bin\Debug\Tetris Projekt.xml
+C:\Users\Stefan\documents\visual studio 2015\Projects\Tetris Projekt\Tetris Projekt\obj\Debug\Tetris Projekt.exe
+C:\Users\Stefan\documents\visual studio 2015\Projects\Tetris Projekt\Tetris Projekt\obj\Debug\Tetris Projekt.pdb
