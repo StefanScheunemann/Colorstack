@@ -39,5 +39,40 @@ Die globalen Variablen sind:
     Const Leer = -1 ' Wenn ein Feld nicht besetzt ist, erhält es die Konstante Leer. Wenn ein Block in ein Feld bewegt wird verändert sich der Wert des Feldes.
     Const Rand = -2 ' Die Randfelder werden mit der Konstante Rand besetzt, in diese kann kein Block bewegt werden.
   
-##Spielfeld
-Das Spielfeld ist in einzelne Felder unterteilt und die Blöcke, die als Panels definiert sind, besetzen die Felder. Dies geschieht dadurch, dass der Wert des Feldes verändert wird. Die Randfelder erhalten den Wert -2. Selbst wenn ein Block versucht dieses Feld zu besetzen wird der Wert des Feldes von -2 auf -1 verändert und das Feld gilt weiterhin als leer. Ein normales Feld, welches besetzt werden darf
+##3. Spielfeld
+Das Spielfeld ist in einzelne Felder unterteilt und die Blöcke, die als Panels definiert sind, besetzen die Felder. Dies geschieht dadurch, dass der Wert des Feldes verändert wird. Die Randfelder erhalten den Wert -2. Selbst wenn ein Block versucht dieses Feld zu besetzen wird der Wert des Feldes von -2 auf -1 verändert und das Feld gilt weiterhin als leer. Ein normales Feld, welches besetzt werden darf, besitzt normalerweise einen Wert von -1, wenn dieses nun besetzt wird verändert sich der Wert auf 0. Ein Feld mit dem Wert 0 wird nicht weiter besetzt und wird im späteren Verlauf überprüft, ob drei gleiche Blöcke nebeneinander liegen.  
+Im Code wird das Spielfeld als Arraylist behandelt, wodurch das Eintragen dieser Werte ermöglicht wird.  
+  
+##4. Steuerung
+Die Steuerung geschieht durch vier Buttons. Das verschieben der Blöcke wird durch jeweils einen Button für links und rechts, um den aktiven Block fallen zu lassen wird der Button "unten" verwendet. Wenn das Spiel pausiert werden soll kann der Pause Button genutzt werden, durch diesen wird der Timer angehalten und der aktive Block bewegt sich nicht weiter.  
+Durch Visual Basic kann man zuerst die visuelle Oberfläche des Programms erstellen, dabei wird die gegebene Toolbox verwendet. Die Buttons können im Code aufgerufen werden, die Position und Größe der Fläche müssen dadurch im Code nicht definiert werden, nur die Funktion, was passiert, sobald der Button getriggered wird.  
+```
+
+    Private Sub cmdLinks_Click(sender As Object, e As EventArgs) Handles cmdLinks.Click
+        If F(PZ, PS - 1) = Leer Then ' Es wird überprüft, ob das Feld links neben dem Block leer ist
+            PL(PX).Left = PL(PX).Left - 20 ' Der Block wird um 20 Pixel verschoben
+            PS = PS - 1 ' Die neue Position wird in der Arraylist eingetragen
+        End If
+    End Sub
+
+    Private Sub cmdRechts_Click(sender As Object, e As EventArgs) Handles cmdRechts.Click
+        If F(PZ, PS + 1) = Leer Then ' Es wird überprüft, ob das Feld rechts neben dem Block leer ist
+            PL(PX).Left = PL(PX).Left + 20 ' Der Block wird um 20 Pixel verschoben
+            PS = PS + 1 ' Die neue Position wird in der Arraylsit eingetragen
+        End If
+    End Sub
+
+    Private Sub cmdUnten_Click(sender As Object, e As EventArgs) Handles cmdUnten.Click
+        Do While F(PZ + 1, PS) = Leer ' Es wird überprüft, ob das Feld unter dem Block leer ist
+            PL(PX).Top = PL(PX).Top + 20 ' Der Block wird um 20 Pixel nach unten verschoben
+            PZ = PZ + 1 ' Die neue Position wird in der Arraylist eingetragen
+        Loop ' Dieser Vorgang wird wiederholt, bis der Block nicht weiter nach unten verschoben werden kann
+        F(PZ, PS) = PX       ' Belegen und verändern des Wertes für das Feld in der Arraylist
+        AllePrüfen() ' Es wird die Routine aufgerufen, die überprüft, ob drei gleiche Blöcke nebeneinader liegen
+        NächstesPanel() ' Es wird die Routine aufgerufen, die einen neuen Block erzeugt
+    End Sub
+
+    Private Sub cmdPause_Click(sender As Object, e As EventArgs) Handles cmdPause.Click
+        timT.Enabled = Not timT.Enabled ' Der Timer wird deaktiviert, um das Spiel zu pausieren
+    End Sub
+```
