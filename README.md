@@ -21,7 +21,7 @@ Visual Basic ist eine von Microsoft angebotene Programmiersprache, die in Visual
 ##2. Variablen
 Die global verwendeten Variablen werden am Anfang definiert.  
 Die globalen Variablen sind:
-<code>
+```
     Dim PX As Integer ' Das aktuelle Panel, welches sich bewegt, erhält einen Index um später wieder aufgerufen zu werden. Dies geschieht beim prüfen, ob drei gleiche Farben in Neben- oder Übereinander sich befinden und für das darausfolgende Löschen des Panels.
     Dim F(14, 9) As Integer ' Das gesamte Spielfeld, dabei ist 14 die Höhe und 9 die Breite. Effektiv belegt werden können nur die Felder 1 bis 13 vertikal und 0 bis 8 waagerecht. die äußeren werte stehen für die Begrenzung des Feldes.
     Dim PZ As Integer ' Die Zeile, in dem sich das aktive Panel befindet. PZ kann dabei dieGgrößen 1 bis 13 annehmen, da dies die Felder sind, welche belegt werden dürfen.
@@ -38,7 +38,7 @@ Die globalen Variablen sind:
         Color.White}
     Const Leer = -1 ' Wenn ein Feld nicht besetzt ist, erhält es die Konstante Leer. Wenn ein Block in ein Feld bewegt wird verändert sich der Wert des Feldes.
     Const Rand = -2 ' Die Randfelder werden mit der Konstante Rand besetzt, in diese kann kein Block bewegt werden.
-    </code>
+  ```
   
 ##Spielfeld
 Das Spielfeld ist in einzelne Felder unterteilt und die Blöcke, die als Panels definiert sind, besetzen die Felder. Dies geschieht dadurch, dass der Wert des Feldes verändert wird. Die Randfelder erhalten den Wert -2. Selbst wenn ein Block versucht dieses Feld zu besetzen wird der Wert des Feldes von -2 auf -1 verändert und das Feld gilt weiterhin als leer. Ein normales Feld, welches besetzt werden darf
