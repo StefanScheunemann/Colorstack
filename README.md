@@ -76,3 +76,38 @@ Durch Visual Basic kann man zuerst die visuelle Oberfläche des Programms erstel
         timT.Enabled = Not timT.Enabled ' Der Timer wird deaktiviert, um das Spiel zu pausieren
     End Sub
 ```
+  
+##5. Erstellen von Blöcken
+Die Blöcke werden als Panels behandelt, jedes Panel besitzt eine Größe von 20x20 Pixeln. Beim verschieben der Blöcke wird immer eine Positionsveränderung von 20 Pixeln verwendet, somit existieren acht Spalten, in denen sich Blöcke befinden können. Beim erstellen ist die Größe fest definiert, die Farbe wird aber zufällig ausgewählt. Aus einer Liste von acht möglichen Farben wird eine ausgewählt für den neuen Block. Das Spiel ist also zu keinem Zeitpunkt unfair, es gibt nicht mehr mögliche Farben als Spalten. Das Panel wird nun der Arraylist hinzugefügt und somit vermerkt, um es später wieder löschen zu können.
+
+```
+Private Sub NächstesPanel()
+        Dim Farbe As Integer ' Die Variable für die Farbe wird verwendet
+        Dim p As New Panel ' Die Variable für Panel wird aufgerufen
+
+        PL.Add(p) ' Ein Panel wird hinzugefügt, die Eigenschaften müssen noch definiert werden
+
+        p.Location = New Point(100, 80) ' Das neue Panel wird platziert
+        p.Size = New Size(20, 20) ' Die Größe ist auf 20x20 Pixel festgelegt
+
+        Farbe = Math.Floor(Rnd() * 8) ' Die Farbe wird zufällig ausgewählt, durch die in den Variablen definierte Auswahl, alle acht Farben sollen verwendet werden
+        p.BackColor = FarbenFeld(Farbe) ' Die ausgewählte Farbe wird auf das Panel angewendet
+
+        Controls.Add(p) ' Das neue Panel wird zur Arraylist hinzugefügt
+
+        PX = PL.Count - 1 ' Das Panel erhält einen Eintrag im Index, um später wieder entfernt zu werden
+
+        PZ = 1 ' Zeile und Spalte des neuen Panels, es ligt direkt in der Mitte der ersten Zeile
+        PS = 5
+```
+  
+Das Vermerken der Farbe ist wichtig, da durch diese später entschieden wird, ob das Pnel aus dem Programm entladen wird.
+  
+##6. Fallen von Blöcken
+Die aktive Block fällt um den definierten Betrag von 20 Pixeln wenn der Timer einen Tick durchlaufen hat. Zu Beginn dauert dies 0,5 Sekunden. Nach jedem gsetzten Block erhöht sich aber der Schwierigkeitsgrad, dies wird durch eine Verringerung der Tick-Länge verursacht. Die Funktion dafür ist
+```
+            Stufe = Stufe + 1
+            timT.Interval = 5000 / (Stufe + 9)
+```
+Die vorherige Stufe wird um eins erhöht und das Intervall von 0,5 Sekunden durch die neue Stufe + 9 geteilt. Dadurch werden die Zeitintevalle pro Tick kontinuirlich kürzer und es wird schwieriger, die Blöcke richtig zu platzieren. Theoretisch können die Intervalle extrem kurz werden, ab einem bestimmten Punkt ist es schwierig, die Kontrolle zu behalten und das Spiel endet.
+  
