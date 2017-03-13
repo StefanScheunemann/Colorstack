@@ -20,3 +20,14 @@ C:\Users\Stefan\Desktop\Tetris Projekt\Tetris Projekt\obj\Debug\Tetris Projekt.v
 C:\Users\Stefan\Desktop\Tetris Projekt\Tetris Projekt\obj\Debug\Tetris_Projekt.Form1.resources
 C:\Users\Stefan\Desktop\Tetris Projekt\Tetris Projekt\obj\Debug\Tetris_Projekt.Resources.resources
 C:\Users\Stefan\Desktop\Tetris Projekt\Tetris Projekt\obj\Debug\Tetris Projekt.vbproj.GenerateResource.Cache
+C:\Users\Stefan\Documents\GitHub\Tetris-Projekt\Tetris Projekt\Tetris Projekt\bin\Debug\Tetris Projekt.exe.config
+C:\Users\Stefan\Documents\GitHub\Tetris-Projekt\Tetris Projekt\Tetris Projekt\obj\Debug\Tetris Projekt.exe
+C:\Users\Stefan\Documents\GitHub\Tetris-Projekt\Tetris Projekt\Tetris Projekt\obj\Debug\Tetris Projekt.xml
+C:\Users\Stefan\Documents\GitHub\Tetris-Projekt\Tetris Projekt\Tetris Projekt\obj\Debug\Tetris Projekt.pdb
+C:\Users\Stefan\Documents\GitHub\Tetris-Projekt\Tetris Projekt\Tetris Projekt\bin\Debug\Tetris Projekt.exe
+C:\Users\Stefan\Documents\GitHub\Tetris-Projekt\Tetris Projekt\Tetris Projekt\bin\Debug\Tetris Projekt.pdb
+C:\Users\Stefan\Documents\GitHub\Tetris-Projekt\Tetris Projekt\Tetris Projekt\bin\Debug\Tetris Projekt.xml
+C:\Users\Stefan\Documents\GitHub\Tetris-Projekt\Tetris Projekt\Tetris Projekt\obj\Debug\Tetris Projekt.vbprojResolveAssemblyReference.cache
+C:\Users\Stefan\Documents\GitHub\Tetris-Projekt\Tetris Projekt\Tetris Projekt\obj\Debug\Tetris_Projekt.Form1.resources
+C:\Users\Stefan\Documents\GitHub\Tetris-Projekt\Tetris Projekt\Tetris Projekt\obj\Debug\Tetris_Projekt.Resources.resources
+C:\Users\Stefan\Documents\GitHub\Tetris-Projekt\Tetris Projekt\Tetris Projekt\obj\Debug\Tetris Projekt.vbproj.GenerateResource.Cache

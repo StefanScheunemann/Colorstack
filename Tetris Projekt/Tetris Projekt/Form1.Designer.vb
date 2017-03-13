@@ -95,6 +95,7 @@ Partial Class Form1
         '
         'timer
         '
+        Me.timer.Enabled = True
         Me.timer.Interval = 500
         '
         'Form1
