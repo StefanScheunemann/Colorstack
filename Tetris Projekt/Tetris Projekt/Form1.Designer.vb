@@ -31,6 +31,7 @@ Partial Class Form1
         Me.PanRechts = New System.Windows.Forms.Panel()
         Me.PanUnten = New System.Windows.Forms.Panel()
         Me.timer = New System.Windows.Forms.Timer(Me.components)
+        Me.Counter = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'cmdLinks
@@ -98,11 +99,21 @@ Partial Class Form1
         Me.timer.Enabled = True
         Me.timer.Interval = 500
         '
+        'Counter
+        '
+        Me.Counter.AutoSize = True
+        Me.Counter.Location = New System.Drawing.Point(150, 50)
+        Me.Counter.Name = "Counter"
+        Me.Counter.Size = New System.Drawing.Size(18, 20)
+        Me.Counter.TabIndex = 5
+        Me.Counter.Text = "0"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(205, 394)
+        Me.Controls.Add(Me.Counter)
         Me.Controls.Add(Me.PanRechts)
         Me.Controls.Add(Me.PanUnten)
         Me.Controls.Add(Me.PanLinks)
@@ -113,6 +124,7 @@ Partial Class Form1
         Me.Name = "Form1"
         Me.Text = "Form1"
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -124,4 +136,5 @@ Partial Class Form1
     Friend WithEvents PanRechts As Panel
     Friend WithEvents PanUnten As Panel
     Friend WithEvents timer As Timer
+    Friend WithEvents Counter As Label
 End Class

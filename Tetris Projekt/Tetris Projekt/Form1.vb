@@ -34,6 +34,8 @@
         panUnten.Location = New Point(20, 340)
         cmdPause.Size = New Size(70, 28)
         cmdPause.Location = New Point(70, 350)
+        Counter.Size = New Size(40, 28)
+        Counter.Location = New Point(150, 50)
 
         Randomize() ' Zufallsgenerator
         For Z = 1 To 13 ' Feld mit Panel besetzen
@@ -97,8 +99,7 @@
         Neben = False
         Über = False
 
-        ' Drei gleiche Panel nebeneinander ?
-        For Z = 13 To 1 Step -1
+        For Z = 13 To 1 Step -1 ' Wenn drei gleiche Farben nebeneinander
             For S = 1 To 6
                 Neben = NebenPrüfen(Z, S)
                 If Neben Then Exit For
@@ -106,8 +107,7 @@
             If Neben Then Exit For
         Next Z
 
-        ' Drei gleiche Panel übereinander ?
-        For Z = 13 To 3 Step -1
+        For Z = 13 To 3 Step -1 ' Wenn drei gleiche Farben übereinander
             For S = 1 To 8
                 Über = ÜberPrüfen(Z, S)
                 If Über Then Exit For
@@ -116,19 +116,16 @@
         Next Z
 
         If Neben Or Über Then
-            ' Schneller
-            Stufe = Stufe + 1
+            Stufe = Stufe + 1 ' Tempo erhöhen
             timer.Interval = 5000 / (Stufe + 9)
+            Counter.Text = Val(Counter.Text) + 1 ' Jede entladene Reihe einen Punkt wert
 
-            ' Eventuell kann jetzt noch eine Reihe
-            ' entfernt werden
-            AllePrüfen()
+            AllePrüfen() ' Prüfen, ob noch eine Reihe entfernt werden kann
         End If
 
     End Sub
 
-    ' Falls 3 Felder nebeneinander besetzt
-    Private Function NebenPrüfen(Z As Integer, S As Integer) As Boolean
+    Private Function NebenPrüfen(Z As Integer, S As Integer) As Boolean ' Prüfen, ob drei gleiche Farben nebeneiander
         Dim ZX, SX As Integer
         NebenPrüfen = False
 
@@ -136,27 +133,21 @@
                 F(Z, S + 1) <> Leer And
                 F(Z, S + 2) <> Leer Then
 
-            ' Falls drei Farben gleich
-            If PL(F(Z, S)).BackColor =
+            If PL(F(Z, S)).BackColor = ' Wenn drei Farben gleich sind
                     PL(F(Z, S + 1)).BackColor And
                     PL(F(Z, S)).BackColor =
                     PL(F(Z, S + 2)).BackColor Then
 
                 For SX = S To S + 2
-                    ' PL aus dem Formular löschen
-                    Controls.Remove(PL(F(Z, SX)))
-                    ' Feld leeren
-                    F(Z, SX) = Leer
+                    Controls.Remove(PL(F(Z, SX))) ' Panel aus dem Formular löschen
+                    F(Z, SX) = Leer ' Feld zurückseten
 
-                    ' Panels oberhalb des entladenen
-                    ' Panels absenken
-                    ZX = Z - 1
+                    ZX = Z - 1 ' Panel überhalb runterziehen
                     Do While F(ZX, SX) <> Leer
                         PL(F(ZX, SX)).Top =
                             PL(F(ZX, SX)).Top + 20
 
-                        ' Feld neu besetzen
-                        F(ZX + 1, SX) = F(ZX, SX)
+                        F(ZX + 1, SX) = F(ZX, SX) ' Feld neu besetzen
                         F(ZX, SX) = Leer
                         ZX = ZX - 1
                     Loop
@@ -167,26 +158,21 @@
         End If
     End Function
 
-    ' Falls drei Felder übereinander besetzt
-    Private Function ÜberPrüfen(Z As Integer, S As Integer) As Boolean
+    Private Function ÜberPrüfen(Z As Integer, S As Integer) As Boolean ' Prüfen, ob drei gleiche Farben übereinander
         Dim ZX As Integer
         ÜberPrüfen = False
 
         If F(Z, S) <> Leer And F(Z - 1, S) <> Leer And
                 F(Z - 2, S) <> Leer Then
 
-            ' Falls drei Farben gleich
-            If PL(F(Z, S)).BackColor =
+            If PL(F(Z, S)).BackColor = ' Wenn drei Farben gleich sind
                     PL(F(Z - 1, S)).BackColor And
                     PL(F(Z, S)).BackColor =
                     PL(F(Z - 2, S)).BackColor Then
 
-                ' 3 Panels entladen
-                For ZX = Z To Z - 2 Step -1
-                    ' PL aus dem Formular löschen
-                    Controls.Remove(PL(F(ZX, S)))
-                    ' Feld leeren
-                    F(ZX, S) = Leer
+                For ZX = Z To Z - 2 Step -1 ' Panels entladen
+                    Controls.Remove(PL(F(ZX, S))) ' Panel aus Formular löschen
+                    F(ZX, S) = Leer ' Feld zurücksetzen
                 Next ZX
                 ÜberPrüfen = True
             End If
@@ -221,4 +207,3 @@
         timer.Enabled = Not timer.Enabled
     End Sub
 End Class
-
