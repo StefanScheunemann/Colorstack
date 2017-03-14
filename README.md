@@ -12,7 +12,7 @@
 <li>7. Löschen von Blöcken</li>
 <li>8. Timer und Schwierigkeitsgrad</li>
 <li>9. Musik</li>
-<li>10. Menü</li>
+<li>10. Highscore</li>
 </ul>
   
 <h2>1. Visual Basic</h2>
@@ -101,13 +101,17 @@ Private Sub NächstesPanel()
         PS = 5
 ```
   
-Das Vermerken der Farbe ist wichtig, da durch diese später entschieden wird, ob das Pnel aus dem Programm entladen wird.
+Das Vermerken der Farbe ist wichtig, da durch diese später entschieden wird, ob das Panel aus dem Programm entladen wird.
   
-##6. Fallen von Blöcken
-Die aktive Block fällt um den definierten Betrag von 20 Pixeln wenn der Timer einen Tick durchlaufen hat. Zu Beginn dauert dies 0,5 Sekunden. Nach jedem gsetzten Block erhöht sich aber der Schwierigkeitsgrad, dies wird durch eine Verringerung der Tick-Länge verursacht. Die Funktion dafür ist
-```
+<h2>6. Fallen von Blöcken</h2>
+<p>Der aktive Block fällt um den definierten Betrag von 20 Pixeln wenn der Timer einen Tick durchlaufen hat. Zu Beginn dauert dies 0,5 Sekunden. Nach jedem gsetzten Block erhöht sich aber der Schwierigkeitsgrad, dies wird durch eine Verringerung der Tick-Länge verursacht. Die Funktion dafür ist</p>
+<code>
             Stufe = Stufe + 1
             timT.Interval = 5000 / (Stufe + 9)
-```
-Die vorherige Stufe wird um eins erhöht und das Intervall von 0,5 Sekunden durch die neue Stufe + 9 geteilt. Dadurch werden die Zeitintevalle pro Tick kontinuirlich kürzer und es wird schwieriger, die Blöcke richtig zu platzieren. Theoretisch können die Intervalle extrem kurz werden, ab einem bestimmten Punkt ist es schwierig, die Kontrolle zu behalten und das Spiel endet.
-  
+</code>
+<p>Die vorherige Stufe wird um eins erhöht und das Intervall von 0,5 Sekunden durch die neue Stufe + 9 geteilt. Dadurch werden die Zeitintevalle pro Tick kontinuirlich kürzer und es wird schwieriger, die Blöcke richtig zu platzieren. Theoretisch können die Intervalle extrem kurz werden, ab einem bestimmten Punkt ist es schwierig, die Kontrolle zu behalten und das Spiel endet.</p>
+
+<h2>7. Löschen von Blöcken</h2>
+<p>Um die Blöcke zu löschen muss zuerst festgestellt werden, ob drei gleichfarbige Blöcke neben- oder übereinander angeordnet sind. Dies wird in zwei Funktionen aufgeteilt, eine zum prüfen der nebeneinander liegenden Blöcke und eine für die Blöcke übereinander.</p>
+
+<p>
