@@ -1,24 +1,24 @@
-# Tetris-Projekt
-
-In diesem Projekt wird mithilfe von Visual Basic ein Spiel erstellt, dass dem bekannten Tetris ähnelt.  
+<h1>Tetris-Projekt</h1>
+<p>In diesem Projekt wird mithilfe von Visual Basic ein Spiel erstellt, dass dem bekannten Tetris ähnelt.</p>
   
-##Inhaltserzeichnis
-1. Visual Basic
-2. Variablen
-3. Das Spielfeld
-4. Steuerung
-5. Erstellen von Blöcken
-6. Fallen von Blöcken
-7. Löschen von Blöcken
-8. Timer und Schwierigkeitsgrad
-9. Musik
-10. Menü
+<h2>Inhaltserzeichnis</h2>
+<ul>
+<li>1. Visual Basic</li>
+<li>2. Variablen</li>
+<li>3. Das Spielfeld</li>
+<li>4. Steuerung</li>
+<li>5. Erstellen von Blöcken</li>
+<li>6. Fallen von Blöcken</li>
+<li>7. Löschen von Blöcken</li>
+<li>8. Timer und Schwierigkeitsgrad</li>
+<li>9. Musik</li>
+<li>10. Menü</li>
+</ul>
   
-  
-##1. Visual Basic
+<h2>1. Visual Basic</h2>
 Visual Basic ist eine von Microsoft angebotene Programmiersprache, die in Visual Studio verwendet werden kann. Diese ähnelt C# in vielen Aspekten, statt nur reinem Code kann zusätzlich aber auch eine visuelle Darstellung des späteren Programms erstellt werden. Durch die von Visual Studio bereitgestellte Toolbox können Funktionen hinzugefügt werden, wie Buttons, Panels und Timer. Diese Funktionen werden direkt in den Code übernommen und es kann mit diesen normal weiterarbeiten, wie in C#.  
   
-##2. Variablen
+<h2>2. Variablen</h2>
 Die global verwendeten Variablen werden am Anfang definiert.  
 Die globalen Variablen sind:
   
