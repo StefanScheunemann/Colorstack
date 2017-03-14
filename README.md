@@ -112,6 +112,7 @@ Das Vermerken der Farbe ist wichtig, da durch diese später entschieden wird, ob
 <p>Die vorherige Stufe wird um eins erhöht und das Intervall von 0,5 Sekunden durch die neue Stufe + 9 geteilt. Dadurch werden die Zeitintevalle pro Tick kontinuirlich kürzer und es wird schwieriger, die Blöcke richtig zu platzieren. Theoretisch können die Intervalle extrem kurz werden, ab einem bestimmten Punkt ist es schwierig, die Kontrolle zu behalten und das Spiel endet.</p>
 
 <h2>7. Löschen von Blöcken</h2>
-<p>Um die Blöcke zu löschen muss zuerst festgestellt werden, ob drei gleichfarbige Blöcke neben- oder übereinander angeordnet sind. Dies wird in zwei Funktionen aufgeteilt, eine zum prüfen der nebeneinander liegenden Blöcke und eine für die Blöcke übereinander.</p>
-
-<p>
+<p>Um die Blöcke zu löschen muss zuerst festgestellt werden, ob drei gleichfarbige Blöcke neben- oder übereinander angeordnet sind. Dies wird in zwei Funktionen aufgeteilt, eine zum prüfen der nebeneinander liegenden Blöcke und eine für die Blöcke übereinander.<br>
+Eine weitere Funktion ist "Alle Prüfen", diese ruft "neben- und überprüfen" auf.</p>
+<p>Die Funktion zum nebeinander prüfen</p>
+<code>
