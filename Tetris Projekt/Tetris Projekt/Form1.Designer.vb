@@ -23,9 +23,9 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Me.cmdLinks = New System.Windows.Forms.Button()
-        Me.cmdUnten = New System.Windows.Forms.Button()
-        Me.cmdRechts = New System.Windows.Forms.Button()
+        Me.cmdLeft = New System.Windows.Forms.Button()
+        Me.cmdDown = New System.Windows.Forms.Button()
+        Me.cmdRight = New System.Windows.Forms.Button()
         Me.cmdPause = New System.Windows.Forms.Button()
         Me.PanLinks = New System.Windows.Forms.Panel()
         Me.PanRechts = New System.Windows.Forms.Panel()
@@ -34,32 +34,32 @@ Partial Class Form1
         Me.Counter = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
-        'cmdLinks
+        'cmdLeft
         '
-        Me.cmdLinks.Location = New System.Drawing.Point(16, 15)
-        Me.cmdLinks.Name = "cmdLinks"
-        Me.cmdLinks.Size = New System.Drawing.Size(40, 28)
-        Me.cmdLinks.TabIndex = 0
-        Me.cmdLinks.Text = "Links"
-        Me.cmdLinks.UseVisualStyleBackColor = True
+        Me.cmdLeft.Location = New System.Drawing.Point(16, 15)
+        Me.cmdLeft.Name = "cmdLeft"
+        Me.cmdLeft.Size = New System.Drawing.Size(40, 28)
+        Me.cmdLeft.TabIndex = 0
+        Me.cmdLeft.Text = "Links"
+        Me.cmdLeft.UseVisualStyleBackColor = True
         '
-        'cmdUnten
+        'cmdDown
         '
-        Me.cmdUnten.Location = New System.Drawing.Point(65, 50)
-        Me.cmdUnten.Name = "cmdUnten"
-        Me.cmdUnten.Size = New System.Drawing.Size(40, 28)
-        Me.cmdUnten.TabIndex = 1
-        Me.cmdUnten.Text = "Unten"
-        Me.cmdUnten.UseVisualStyleBackColor = True
+        Me.cmdDown.Location = New System.Drawing.Point(65, 50)
+        Me.cmdDown.Name = "cmdDown"
+        Me.cmdDown.Size = New System.Drawing.Size(40, 28)
+        Me.cmdDown.TabIndex = 1
+        Me.cmdDown.Text = "Unten"
+        Me.cmdDown.UseVisualStyleBackColor = True
         '
-        'cmdRechts
+        'cmdRight
         '
-        Me.cmdRechts.Location = New System.Drawing.Point(96, 15)
-        Me.cmdRechts.Name = "cmdRechts"
-        Me.cmdRechts.Size = New System.Drawing.Size(40, 28)
-        Me.cmdRechts.TabIndex = 2
-        Me.cmdRechts.Text = "Rechts"
-        Me.cmdRechts.UseVisualStyleBackColor = True
+        Me.cmdRight.Location = New System.Drawing.Point(96, 15)
+        Me.cmdRight.Name = "cmdRight"
+        Me.cmdRight.Size = New System.Drawing.Size(40, 28)
+        Me.cmdRight.TabIndex = 2
+        Me.cmdRight.Text = "Rechts"
+        Me.cmdRight.UseVisualStyleBackColor = True
         '
         'cmdPause
         '
@@ -118,9 +118,9 @@ Partial Class Form1
         Me.Controls.Add(Me.PanUnten)
         Me.Controls.Add(Me.PanLinks)
         Me.Controls.Add(Me.cmdPause)
-        Me.Controls.Add(Me.cmdRechts)
-        Me.Controls.Add(Me.cmdUnten)
-        Me.Controls.Add(Me.cmdLinks)
+        Me.Controls.Add(Me.cmdRight)
+        Me.Controls.Add(Me.cmdDown)
+        Me.Controls.Add(Me.cmdLeft)
         Me.Name = "Form1"
         Me.Text = "Form1"
         Me.ResumeLayout(False)
@@ -128,9 +128,9 @@ Partial Class Form1
 
     End Sub
 
-    Friend WithEvents cmdLinks As Button
-    Friend WithEvents cmdUnten As Button
-    Friend WithEvents cmdRechts As Button
+    Friend WithEvents cmdLeft As Button
+    Friend WithEvents cmdDown As Button
+    Friend WithEvents cmdRight As Button
     Friend WithEvents cmdPause As Button
     Friend WithEvents PanLinks As Panel
     Friend WithEvents PanRechts As Panel
