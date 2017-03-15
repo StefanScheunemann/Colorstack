@@ -32,6 +32,7 @@ Partial Class Form1
         Me.PanUnten = New System.Windows.Forms.Panel()
         Me.timer = New System.Windows.Forms.Timer(Me.components)
         Me.Counter = New System.Windows.Forms.Label()
+        Me.Highscore = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'cmdLeft
@@ -108,11 +109,21 @@ Partial Class Form1
         Me.Counter.TabIndex = 5
         Me.Counter.Text = "0"
         '
+        'Highscore
+        '
+        Me.Highscore.AutoSize = True
+        Me.Highscore.Location = New System.Drawing.Point(150, 15)
+        Me.Highscore.Name = "Highscore"
+        Me.Highscore.Size = New System.Drawing.Size(81, 20)
+        Me.Highscore.TabIndex = 6
+        Me.Highscore.Text = "Highscore"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(205, 394)
+        Me.Controls.Add(Me.Highscore)
         Me.Controls.Add(Me.Counter)
         Me.Controls.Add(Me.PanRechts)
         Me.Controls.Add(Me.PanUnten)
@@ -137,4 +148,5 @@ Partial Class Form1
     Friend WithEvents PanUnten As Panel
     Friend WithEvents timer As Timer
     Friend WithEvents Counter As Label
+    Friend WithEvents Highscore As Label
 End Class

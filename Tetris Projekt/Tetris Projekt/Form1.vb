@@ -1,4 +1,5 @@
 ﻿Public Class Form1
+    Dim PlayerName As String = ""
     Dim PX As Integer ' Index des aktiven Panels
     Dim F(14, 9) As Integer ' Spielfeld mit Rand
     Dim PZ As Integer ' Zeile des aktiven Panels
