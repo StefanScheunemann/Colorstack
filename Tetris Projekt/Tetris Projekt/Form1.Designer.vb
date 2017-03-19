@@ -23,53 +23,54 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Me.cmdLeft = New System.Windows.Forms.Button()
-        Me.cmdDown = New System.Windows.Forms.Button()
-        Me.cmdRight = New System.Windows.Forms.Button()
-        Me.cmdPause = New System.Windows.Forms.Button()
+        Me.Left = New System.Windows.Forms.Button()
+        Me.Down = New System.Windows.Forms.Button()
+        Me.Right = New System.Windows.Forms.Button()
+        Me.Pause = New System.Windows.Forms.Button()
         Me.PanLinks = New System.Windows.Forms.Panel()
         Me.PanRechts = New System.Windows.Forms.Panel()
         Me.PanUnten = New System.Windows.Forms.Panel()
         Me.timer = New System.Windows.Forms.Timer(Me.components)
         Me.Counter = New System.Windows.Forms.Label()
         Me.Highscore = New System.Windows.Forms.Label()
+        Me.BestPlayer = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
-        'cmdLeft
+        'Left
         '
-        Me.cmdLeft.Location = New System.Drawing.Point(16, 15)
-        Me.cmdLeft.Name = "cmdLeft"
-        Me.cmdLeft.Size = New System.Drawing.Size(40, 28)
-        Me.cmdLeft.TabIndex = 0
-        Me.cmdLeft.Text = "Links"
-        Me.cmdLeft.UseVisualStyleBackColor = True
+        Me.Left.Location = New System.Drawing.Point(16, 15)
+        Me.Left.Name = "Left"
+        Me.Left.Size = New System.Drawing.Size(40, 28)
+        Me.Left.TabIndex = 0
+        Me.Left.Text = "Links"
+        Me.Left.UseVisualStyleBackColor = True
         '
-        'cmdDown
+        'Down
         '
-        Me.cmdDown.Location = New System.Drawing.Point(65, 50)
-        Me.cmdDown.Name = "cmdDown"
-        Me.cmdDown.Size = New System.Drawing.Size(40, 28)
-        Me.cmdDown.TabIndex = 1
-        Me.cmdDown.Text = "Unten"
-        Me.cmdDown.UseVisualStyleBackColor = True
+        Me.Down.Location = New System.Drawing.Point(65, 50)
+        Me.Down.Name = "Down"
+        Me.Down.Size = New System.Drawing.Size(40, 28)
+        Me.Down.TabIndex = 1
+        Me.Down.Text = "Unten"
+        Me.Down.UseVisualStyleBackColor = True
         '
-        'cmdRight
+        'Right
         '
-        Me.cmdRight.Location = New System.Drawing.Point(96, 15)
-        Me.cmdRight.Name = "cmdRight"
-        Me.cmdRight.Size = New System.Drawing.Size(40, 28)
-        Me.cmdRight.TabIndex = 2
-        Me.cmdRight.Text = "Rechts"
-        Me.cmdRight.UseVisualStyleBackColor = True
+        Me.Right.Location = New System.Drawing.Point(96, 15)
+        Me.Right.Name = "Right"
+        Me.Right.Size = New System.Drawing.Size(40, 28)
+        Me.Right.TabIndex = 2
+        Me.Right.Text = "Rechts"
+        Me.Right.UseVisualStyleBackColor = True
         '
-        'cmdPause
+        'Pause
         '
-        Me.cmdPause.Location = New System.Drawing.Point(70, 350)
-        Me.cmdPause.Name = "cmdPause"
-        Me.cmdPause.Size = New System.Drawing.Size(70, 28)
-        Me.cmdPause.TabIndex = 3
-        Me.cmdPause.Text = "Pause"
-        Me.cmdPause.UseVisualStyleBackColor = True
+        Me.Pause.Location = New System.Drawing.Point(70, 350)
+        Me.Pause.Name = "Pause"
+        Me.Pause.Size = New System.Drawing.Size(70, 28)
+        Me.Pause.TabIndex = 3
+        Me.Pause.Text = "Pause"
+        Me.Pause.UseVisualStyleBackColor = True
         '
         'PanLinks
         '
@@ -103,7 +104,7 @@ Partial Class Form1
         'Counter
         '
         Me.Counter.AutoSize = True
-        Me.Counter.Location = New System.Drawing.Point(150, 50)
+        Me.Counter.Location = New System.Drawing.Point(185, 350)
         Me.Counter.Name = "Counter"
         Me.Counter.Size = New System.Drawing.Size(18, 20)
         Me.Counter.TabIndex = 5
@@ -112,26 +113,36 @@ Partial Class Form1
         'Highscore
         '
         Me.Highscore.AutoSize = True
-        Me.Highscore.Location = New System.Drawing.Point(150, 15)
+        Me.Highscore.Location = New System.Drawing.Point(185, 19)
         Me.Highscore.Name = "Highscore"
         Me.Highscore.Size = New System.Drawing.Size(81, 20)
         Me.Highscore.TabIndex = 6
         Me.Highscore.Text = "Highscore"
         '
+        'BestPlayer
+        '
+        Me.BestPlayer.AutoSize = True
+        Me.BestPlayer.Location = New System.Drawing.Point(185, 50)
+        Me.BestPlayer.Name = "BestPlayer"
+        Me.BestPlayer.Size = New System.Drawing.Size(109, 20)
+        Me.BestPlayer.TabIndex = 7
+        Me.BestPlayer.Text = "Bester Spieler"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(205, 394)
+        Me.ClientSize = New System.Drawing.Size(278, 384)
+        Me.Controls.Add(Me.BestPlayer)
         Me.Controls.Add(Me.Highscore)
         Me.Controls.Add(Me.Counter)
         Me.Controls.Add(Me.PanRechts)
         Me.Controls.Add(Me.PanUnten)
         Me.Controls.Add(Me.PanLinks)
-        Me.Controls.Add(Me.cmdPause)
-        Me.Controls.Add(Me.cmdRight)
-        Me.Controls.Add(Me.cmdDown)
-        Me.Controls.Add(Me.cmdLeft)
+        Me.Controls.Add(Me.Pause)
+        Me.Controls.Add(Me.Right)
+        Me.Controls.Add(Me.Down)
+        Me.Controls.Add(Me.Left)
         Me.Name = "Form1"
         Me.Text = "Form1"
         Me.ResumeLayout(False)
@@ -139,14 +150,15 @@ Partial Class Form1
 
     End Sub
 
-    Friend WithEvents cmdLeft As Button
-    Friend WithEvents cmdDown As Button
-    Friend WithEvents cmdRight As Button
-    Friend WithEvents cmdPause As Button
+    Friend WithEvents Left As Button
+    Friend WithEvents Down As Button
+    Friend WithEvents Right As Button
+    Friend WithEvents Pause As Button
     Friend WithEvents PanLinks As Panel
     Friend WithEvents PanRechts As Panel
     Friend WithEvents PanUnten As Panel
     Friend WithEvents timer As Timer
     Friend WithEvents Counter As Label
     Friend WithEvents Highscore As Label
+    Friend WithEvents BestPlayer As Label
 End Class

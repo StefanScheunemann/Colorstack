@@ -1,5 +1,7 @@
 ﻿Public Class Form1
-    Dim PlayerName As String = ""
+    Dim record As Integer = 0
+    Dim Rekord As Integer = 0
+    Dim Playername As String = ""
     Dim PX As Integer ' Index des aktiven Panels
     Dim F(14, 9) As Integer ' Spielfeld mit Rand
     Dim PZ As Integer ' Zeile des aktiven Panels
@@ -19,24 +21,37 @@
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim Z, S As Integer
+        Dim HighscoreList As Integer
 
-        Me.Size = New Size(225, 440) ' Größe und Ort
-        cmdLeft.Size = New Size(40, 28)
-        cmdLeft.Location = New Point(16, 15)
-        cmdRight.Size = New Size(40, 28)
-        cmdRight.Location = New Point(96, 15)
-        cmdDown.Size = New Size(40, 28)
-        cmdDown.Location = New Point(56, 50)
+        Me.Size = New Size(300, 440) ' Größe und Ort
+        Left.Size = New Size(40, 28)
+        Left.Location = New Point(16, 15)
+        Right.Size = New Size(40, 28)
+        Right.Location = New Point(96, 15)
+        Down.Size = New Size(40, 28)
+        Down.Location = New Point(56, 50)
         PanLinks.Size = New Size(1, 260)
         PanLinks.Location = New Point(20, 80)
         PanRechts.Size = New Size(1, 260)
         PanRechts.Location = New Point(180, 80)
         PanUnten.Size = New Size(160, 1)
         PanUnten.Location = New Point(20, 340)
-        cmdPause.Size = New Size(70, 28)
-        cmdPause.Location = New Point(70, 350)
+        Pause.Size = New Size(70, 28)
+        Pause.Location = New Point(70, 350)
         Counter.Size = New Size(40, 28)
-        Counter.Location = New Point(150, 50)
+        Counter.Location = New Point(185, 350)
+        Highscore.Size = New Size(80, 20)
+        Highscore.Location = New Point(150, 15)
+        BestPlayer.Size = New Size(80, 20)
+        BestPlayer.Location = New Point(150, 50)
+
+        HighscoreList = FreeFile()
+        FileOpen(HighscoreList, "Highscore.txt", OpenMode.Input)
+        Playername = LineInput(HighscoreList)
+        level = LineInput(HighscoreList)
+        BestPlayer.Text = "Bester Spieler: " & Playername
+        Highscore.Text = "Highscore: " & level
+        FileClose(HighscoreList)
 
         Randomize() ' Zufallsgenerator
         For Z = 1 To 13 ' Feld mit Panel besetzen
@@ -77,11 +92,24 @@
     End Sub
 
     Private Sub timer_Tick(sender As Object, e As EventArgs) Handles timer.Tick
+        Dim HighscoreList As Integer
+
         If F(PZ + 1, PS) <> empty Then ' Falls keine Panels erstellt werden können
             If PZ = 1 Then ' Falls oberste Zeile erreicht
                 timer.Enabled = False
                 MessageBox.Show("Game Over")
-                Exit Sub
+                If level > record Then ' Wenn mehr Punkte erzielt als bisheriger Rekord
+                    record = level
+                    Highscore.Text = "High Score: " & record
+                    Playername = InputBox("Spielername", "Spielername eingeben")
+                    BestPlayer.Text = "Bester Spieler: " & Playername
+                    HighscoreList = FreeFile()
+                    FileOpen(HighscoreList, "Highscore.txt", OpenMode.Output)
+                    PrintLine(HighscoreList, Playername)
+                    PrintLine(HighscoreList, level)
+                    FileClose(HighscoreList)
+                End If
+                Application.Restart()
             End If
 
             F(PZ, PS) = PX ' Panel Belegen
@@ -180,21 +208,21 @@
         End If
     End Function
 
-    Private Sub cmdLeft_Click(sender As Object, e As EventArgs) Handles cmdLeft.Click
+    Private Sub Left_Click(sender As Object, e As EventArgs) Handles Left.Click
         If F(PZ, PS - 1) = empty Then
             PL(PX).Left = PL(PX).Left - 20
             PS = PS - 1
         End If
     End Sub
 
-    Private Sub cmdRight_Click(sender As Object, e As EventArgs) Handles cmdRight.Click
+    Private Sub Right_Click(sender As Object, e As EventArgs) Handles Right.Click
         If F(PZ, PS + 1) = empty Then
             PL(PX).Left = PL(PX).Left + 20
             PS = PS + 1
         End If
     End Sub
 
-    Private Sub cmdDown_Click(sender As Object, e As EventArgs) Handles cmdDown.Click
+    Private Sub Down_Click(sender As Object, e As EventArgs) Handles Down.Click
         Do While F(PZ + 1, PS) = empty
             PL(PX).Top = PL(PX).Top + 20
             PZ = PZ + 1
@@ -204,7 +232,7 @@
         nextPanel()
     End Sub
 
-    Private Sub cmdPause_Click(sender As Object, e As EventArgs) Handles cmdPause.Click
+    Private Sub Pause_Click(sender As Object, e As EventArgs) Handles Pause.Click
         timer.Enabled = Not timer.Enabled
     End Sub
 End Class
