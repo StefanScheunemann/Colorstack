@@ -20,6 +20,9 @@
 Sobald drei gleichfarbige Blöcke neben- oder übereinander liegen werden diese entfernt und der Spieler erhält einen Punkt. Die Blockgeschwindigkeit steigt jedesmal, wenn Blöcke entfernt werden.<br>
 Sobald kein Block mehr erstellt werden kann, weil das Spielfeld nach oben hin gefüllt ist, ist das Spiel vorbei.</p>
 
+<p>Im Ordner "Colorstack Installation" befindet sich eine Setup.exe, durch diese kann das Programm installiert werden.<br>
+Das Programm funktioniert auf jedem PC, der Windows verwendet.</p>
+
 
 <h2><a id="Vis">2. Visual Basic</a></h2>
 <p>Visual Basic ist eine von Microsoft angebotene Programmiersprache, die in Visual Studio verwendet werden kann. Diese ähnelt C# in vielen Aspekten, statt nur reinem Code kann aber auch eine visuelle Darstellung des späteren Programms erstellt werden. Durch die von Visual Studio bereitgestellte Toolbox können Funktionen hinzugefügt werden, wie Buttons, Panels und Timer. Diese Funktionen werden direkt in den Code übernommen und es kann mit diesen normal weitergearbeitet werden, wie in C#.</p>
