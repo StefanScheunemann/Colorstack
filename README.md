@@ -53,133 +53,78 @@ Für die Steuerung wird die "KeyDown" Funktion verwendet. Mit diesem Befehl wird
 <h2><a id="Fal">7. Fallen von Blöcken</a></h2>
 <p>Der aktive Block fällt um den definierten Betrag von 20 Pixeln wenn der Timer einen Tick durchlaufen hat. Zu Beginn dauert dies 0,5 Sekunden. Immer wenn Blöcke entfernt werden und das level um eins erhöht wird steigt der Schwierigkeitsgrad, dies wird durch eine Verringerung der Tick-Länge verursacht. Dafür wird eine Variable verwendet, die beim Löschen der Blöcke um eins erhöt wird. Mit dieser variable wird der Zeitintervall berrechnet.<br>
 In der Timer Funktion wird auch das Game Over Event behandelt, sobald ein Block die oberste Zeile berührt und nicht weiter fallen kann wirdt der Timer angehalten und eine "Game Over" Message Box erscheint.</p>
-<code>
-            level = level + 1 ' Tempo erhöhen
-            timer.Interval = 5000 / (level + 9)
-            Counter.Text = Val(Counter.Text) + 1 ' Jede entladene Reihe einen Punkt wert
-</code>
+
+<p><img src="images/Timer3.PNG" alt="Timer3" style="width:420px;height:420px;border:0;"></p>
 
 <p>Die vorherige Stufe wird um eins erhöht und das Intervall von 0,5 Sekunden durch die neue Stufe + 9 geteilt. Dadurch werden die Zeitintevalle pro Tick kontinuirlich kürzer und es wird schwieriger, die Blöcke richtig zu platzieren. Theoretisch können die Intervalle extrem kurz werden, ab einem bestimmten Punkt wird es aber schwierig, die Kontrolle zu behalten und das Spiel endet.</p>
 
 <h2><a id="Lös">8. Löschen von Blöcken</a></h2>
 <p>Um die Blöcke zu löschen muss zuerst festgestellt werden, ob drei gleichfarbige Blöcke neben- oder übereinander angeordnet sind. Dies wird in zwei Funktionen aufgeteilt, eine zum prüfen der nebeneinander liegenden Blöcke und eine für die Blöcke übereinander.<br>
 Eine weitere Funktion ist "Alle Prüfen", diese ruft "neben- und überprüfen" auf.</p>
-<p>Die Funktion zum nebeinander prüfen</p>
-```
-    Private Function checkBeside(Z As Integer, S As Integer) As Boolean ' Prüfen, ob drei gleiche Farben nebeneiander
-        Dim ZX, SX As Integer
-        checkBeside = False
+<p>Die Funktion zum nebeinander prüfen.</p>
 
-        If F(Z, S) <> empty And
-                F(Z, S + 1) <> empty And
-                F(Z, S + 2) <> empty Then
+<p><img src="images/Überprüfen2.PNG" alt="Überprüfen2" style="width:420px;height:420px;border:0;"></p>
 
-            If PL(F(Z, S)).BackColor = ' Überprüfen, ob drei Panels nebeneinander die gleiche Farbe Farbvariable besitzen
-                    PL(F(Z, S + 1)).BackColor And
-                    PL(F(Z, S)).BackColor =
-                    PL(F(Z, S + 2)).BackColor Then
+<p>Die Funktion zum übereinander prüfen.</p>
 
-                For SX = S To S + 2
-                    Controls.Remove(PL(F(Z, SX))) ' Wenn drei Panels gleich sind werden diese aus der Arraylist gelöscht
-                    F(Z, SX) = empty ' Feld zurückseten
+<p><img src="images/Überprüfen3.PNG" alt="Überprüfen3" style="width:420px;height:420px;border:0;"></p>
 
-                    ZX = Z - 1 ' Panels über den entfernten nachrücken lassen
-                    Do While F(ZX, SX) <> empty
-                        PL(F(ZX, SX)).Top =
-                            PL(F(ZX, SX)).Top + 20 ' absenken um 20 Pixel, also eine Panel Größe, bis kein Platz verfügbar ist
-
-                        F(ZX + 1, SX) = F(ZX, SX) ' Feld in Arraylist wieder in offenen Zustand setzen, Wert auf -1
-                        F(ZX, SX) = empty
-                        ZX = ZX - 1
-                    Loop
-
-                Next SX
-                checkBeside = True ' Nach dem Prüfen nebeneinander wird geprüft, ob drei gleiche übereinander liegen
-            End If
-        End If
-    End Function
-```
 <p>Diese beiden Funktionen werden in einer weiteren Funktion aufgerufen, die sobald keine weiteren Panels zum löschen identifiziert werden die Freigabe gibt um einen neues Panel zu erzeugen. Sobald eine der Funktionen Panels entfernt wird der Wert des Counters um eins erhöht, da so ein Punkt erzielt wird.<br>
 Für den Punktezähler wir ein Label verwenet, der wert daraus wird am Ende gespeichert und für den Highscore verwendet.<br>
 Um den Schwierigkeitsgrad kontinuirlich zu erhöhen wird nach jedem entfernen von Panels durch die Funktionen der Zeitintervall des Timers verkürzt. Durch das Verkürzen der Intervall wird die Fallgeschwindigkeit der Blöcke erhöht und es wird schwieriger, die Blöcke richtig zu platzieren.
-<code>
-    Private Sub allCheck()
-        Dim Z, S As Integer
-        Dim Beside, Above As Boolean
-        Beside = False
-        Above = False
 
-        For Z = 13 To 1 Step -1 ' Definition, welche Felder geprüft werden sollen
-            For S = 1 To 6
-                Beside = checkBeside(Z, S)
-                If Beside Then Exit For
-            Next S
-            If Beside Then Exit For
-        Next Z
-
-        For Z = 13 To 3 Step -1 ' Definition, welche Felder geprüft werden sollen
-            For S = 1 To 8
-                Above = checkAbove(Z, S)
-                If Above Then Exit For
-            Next S
-            If Above Then Exit For
-        Next Z
-
-        If Beside Or Above Then
-            level = level + 1 ' Tempo erhöhen
-            timer.Interval = 5000 / (level + 9)
-            Counter.Text = Val(Counter.Text) + 1 ' Jedes mal wenn drei Panels gelöscht werden wird der Punktezähler um einen erhöht. Dieser Wert wird später für den Highscore verwendet
-
-            allCheck() ' Durch Nachrücken können weitere Panels gelöscht werden, falls drei gleiche nebeneinander liegen
-        End If
-
-    End Sub
-    </code>
+<p><img src="images/Überprüfen1.PNG" alt="Überprüfen1" style="width:420px;height:420px;border:0;"></p>
 
 <h2><a id="Hig">9. Highscore</a></h2>
 <p>Der Highscore wird in einer txt-Datei gespeichert und kann jedes mal aufgerufen werden, wenn das Spiel gestartet wird. Es wird immer nur der höchste Highscore gespeichert, die txt-Datei kann im Programmordner gefunden werden.<br>
 Es werden zwei Funktionen benutzt, um in der Datei schreiben zu können und um die Datei auslesen zu können.</p>
 
 <p>Die Funktion zum schreiben befindet sich im timer, sobald die "game over" Message Box angezeigt wird prüft das Programm, ob der aktuelle Punktestand höher ist als der bisherige Rekord. Falls der aktuelle Punktestand höher ist als der Rekord wird der Spieler aufgefordert, seinen Namen einzugeben, dieser wird im Highscore gespeichert.</p>
-```
-                If level > record Then ' Wenn mehr Punkte erzielt als bisheriger Rekord
-                    record = level
-                    Highscore.Text = "High Score: " & record
-                    Playername = InputBox("Spielername", "Spielername eingeben")
-                    BestPlayer.Text = "Bester Spieler: " & Playername
-                    HighscoreList = FreeFile()
-                    FileOpen(HighscoreList, "Highscore.txt", OpenMode.Output) ' Öffnen der Datei direkt im Programmordner
-                    PrintLine(HighscoreList, Playername)
-                    PrintLine(HighscoreList, level)
-                    FileClose(HighscoreList)
-```
 
-<p>Wenn das Programm gestartet wird wird der aktuelle Highscore aus der txt-Datei geladen und im Spiel angezeigt. Dafür werden zwei Labels verwendet, Spielername und Highscore werden getrennt geladen. Die Funktion dafür befindet sich im FormLoader, es wird also direkt zu Anfang ausgeführt.</p>
-```
-        HighscoreList = FreeFile()
-        FileOpen(HighscoreList, "Highscore.txt", OpenMode.Input) ' Definition, welche Datei geöffnet werden soll
-        Playername = LineInput(HighscoreList)
-        level = LineInput(HighscoreList)
-        BestPlayer.Text = "Bester Spieler: " & Playername ' Die Label erhalten ihren Inhalt
-        Highscore.Text = "Highscore: " & level
-        FileClose(HighscoreList)
-```
+<p><img src="images/Highscore1.PNG" alt="Highscore1" style="width:420px;height:420px;border:0;"></p>
 
+<p>Wenn das Programm gestartet wird wird der aktuelle Highscore aus der txt-Datei geladen und im Spiel angezeigt. Dafür werden zwei Labels verwendet, Spielername und Highscore werden getrennt geladen. Die Funktion dafür befindet sich im Form1Loader, es wird also direkt zu Anfang ausgeführt.</p>
+
+<p><img src="images/Highscore2.PNG" alt="Highscore2" style="width:420px;height:420px;border:0;"></p>
 
 <h2><a id="Stu">10.Stundenprotokoll</a></h2>
-<h4>14.3.</h4>
-<p>Das System für das Löschen der Blöcke hat noch Fehler erzeugt, wenn durch nachrücken von Blöcken ein weiteres mal Blöcke entfernt werden können ist dies bisher nicht geschehen. Den Großteil der Stunde habe ich mit diesem Bug verbracht, die Lösung war es, am Ende der AllCheck Funktion ein weiteres mal diese Funktion aufzurufen. Falls keine weiteren Blöcke gelöscht werden können wird die If-Abfrage sofort beendet und ein neuer Block wird generiert.</p>
+<h4>21.2.2017</h4>
+<p>Nach der html-Dokumentation folgt ein neues Projekt, in dieser Stunde habe Ich ein erstes Konzept für dieses erstellt. Mit Visual Basic sollte es möglich sein, ein Spiel nach dem Snake, Tetris oder Pong Prinzip zu schrieben ohne den großen Aufwand, eine komplette neue Programmiersprache zu lernen.<br>
+Eine einfache Kopie eines der gernannten Spiele ist nicht das Ziel dieses Projekts, doch eine Anlehnung an diese Klassiker wäre ein realisierbares Ziel.</p>
 
-<h4>16.3.</h4>
+<h4>23.2.2017</h4>
+<p>Für das neue Projekt verwende ich das Raspberry Pi, darauf kann man mit der Programmiersprache Visual Basic arbeiten, welche leicht zu verstehen ist und schnell graphische Oberflächen erzeugen kann. Um Visual Basic auf dem Raspberry verwenden zu können muss Window 10 IOT verwendet werden.<br>
+Windows 10 IOT ist eine von Windows angebotene Möglichkeit um Windows auf unter anderem dem Raspberry Pi Netzweksteuerung und Sensorensteuerung in Windows-Sprachen zu verwenden.</p>
+
+<h4>1.3.2017</h4>
+<p>Die Idee, dass Raspberry Pi zu verwenden ist prinzipiell umsetzbar, doch die Ausführung ist aufwendiger als erwartet und für die verbleibende Zeit zu knapp.<br>
+Die Idee des Programms belibt erhalten, doch die Umsetzung findet normal auf dem PC in einer normalen Programmierumgebung statt. Am Ende wird das Spiel ein normales Programm sein, welches Installiert werden kann und als Prozess besteht. Eine Umsetzung auf dem Raspberry Pi könnte in Zukunft noch folgen.<br>
+Erste Formen und Oberflächen des neuen Programms erstellt</p>
+
+<h4>2.3.2017</h4>
+<p>Erster Code für das Programm erstellt und das Spielfeld definiert. Eine Breite von acht Feldern ist überschaubar und wird das Maß des Spielfeldes sein.<br>
+Äußerlich für den Spieler existiert eine Begrenzung durch drei Panels in Form von Lienien, im Code wird aber mit Pixel Zahlen für Blöcke und Spielfeld gearbeitet. Um das Spiel fair zu gestalten sollen acht verschiedenfarbige Blöcke integriert sein.</p>
+
+<h4>8.3.2017</h4>
+<p>In dieser Stunde weitergearbeitet am Code, die Blöcke können nun fallen durch einen Timer, bisher Stapeln die Blöcke sich aber noch unendlich, das Löschen von Blöcken ist noch nicht möglich. Auch ist der Schwierigkeitsgrad noch konstant, das Grundgerüst funktioniert aber wie angedacht.</p>
+
+<h4>9.3.2017</h4>
+<p>Aufgrund ovn technischen Problemen meines Laptops konnte Ich nicht am Code arbeiten, diese Stunde wurde verwendet um an der Dokumentation zu schreiben. Ein erstes Inhaltsverzeichnis wurde erstellt und Erklärungen zum bisherigen Code verfasst.<br>
+Diese Erkärungen müssen aber zu einem späteren Zeitpunkt überarbeitet werden, wenn der restliche Code geschrieben ist.</p>
+
+
+<h4>14.3.2017</h4>
+<p>Das System für das Löschen der Blöcke erzeugt noch Fehler, wenn durch nachrücken von Blöcken ein weiteres mal Blöcke entfernt werden können ist dies bisher nicht geschehen. Den Großteil der Stunde habe ich mit diesem Bug verbracht, die Lösung war es, am Ende der "AllCheck" Funktion ein weiteres mal diese Funktion aufzurufen. Falls keine weiteren Blöcke gelöscht werden können wird die If-Abfrage sofort beendet und ein neuer Block wird generiert.</p>
+
+<h4>16.3.2017</h4>
 <p>Erste Stunde:<br> 
-In Visual Basic kann man txt-Dateien erstellen, in diesen schreiben und sie auch auslesen. Ich habe mich in dieser Stunde damit beschäftigt, wie eine derartige Datei erstellt wird und man diese modifizieren kann. Dazu gibt es eine Anleitung von Microsoft, doese kann <a href="https://msdn.microsoft.com/de-de/library/6ka1wd3w(v=vs.110).aspx">hier</a> gefunden werden. Danach habe Ich eine erste txt-Datei erstellt, die Funktionen zum auslesen und schreiben in dieser der Datei habe ich aber erst später geschrieben.<br>
-Zweite Stunde:<br>
-In der zweiten Stunde habe ich an der Dokumentation gearbeitet und die Erklärung für das Löschen von Blöcken und die Erklärung für den Highscore, also die txt-Datei, begonnen. Diese Erklärung wurde auch zu einemn späteren Zeitpunkt beendet</p>
+In Visual Basic können txt-Dateien erstellt werden, in diesen kann geschreiben und auch gelesen werden. Ich habe mich in dieser Stunde damit beschäftigt, wie eine derartige Datei erstellt wird und man diese modifizieren kann. Dazu gibt es eine Anleitung von Microsoft, diese kann <a href="https://msdn.microsoft.com/de-de/library/6ka1wd3w(v=vs.110).aspx">hier</a> gefunden werden. Danach habe Ich eine erste txt-Datei erstellt, die Funktionen zum auslesen und schreiben in dieser der Datei habe ich aber erst später geschrieben.<br>
+Das System zum löschen der Blöcke funktioniert, es treten keine Fehler auf und der Schwierigkeitsgrad steigt kontinuirlich an. Die Steuerung ist noch problematisch, die Probleme davon konnten in dieser Stunde noch nicht behoben werden.</p>
 
-<h4>21.3.</h4>
+<h4>21.3.2017</h4>
 <p>In dieser Stunde habe ich mich in die "KeyDown" Funktion eingelesen, diese wird <a href="https://msdn.microsoft.com/de-de/library/system.windows.forms.control.keydown(v=vs.110).aspx"> hier</a> erklärt. Es ist möglich, durch den "KeyChar" Befehl, direkte Tastatureingaben zu verwenden, wobei der KeyDown Befehl beim Anschlag der Taste den Befehl registriert. Wenn eine Tastenkombination verwendet werden soll muss eine eigene Funktion für diese geschrieben werden, in meinem Fall werden aber nur einfache Tastenanschläge benötigt.<br>
 Es existiert auch der Befehl "KeyPress", dieser verwendet aber keine Sonderzeichen, wie die Pfeile, Enter und Leertaste.<br>
 In meinem Fall war "KeyDown" besser geeignet, da die Leertaste zum pausieren des Spiels verwendet werden soll.<p>
 
-<h4>23.3.</h4>
+<h4>23.3.2017</h4>
 <p>Letzte Stunde vor der Abgabe des Projekts, die verbleibende Zeit wurde zum schreiben an der Dokumentation verwendet. Das Programm ist fast fertig, nur Formatierungen und Positionen der Textblöcke zum Anzeigen des Highscores werden noch verändert. Die Dokumentation ist auch fast fertig, in dieser Stunde wurden die Verlinkungen innerhalb der Dokumentation erstellt.</p> 
