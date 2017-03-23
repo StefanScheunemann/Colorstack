@@ -56,7 +56,7 @@ Das Spiel ist also zu keinem Zeitpunkt unfair, es gibt nicht mehr mögliche Farb
 Die Farbe ist als BackColor defniert, somit kann durch spätere Funktionen die Farbe ausgelesen werden.<br>
 Jeder neue Block wird in der ersten Zeile in der fünften Spalte erzeugt, damit eine Kontinuität entsteht.</p>
 
-<p><img src="images/Neuer Block.PNG" alt="Neuer Block" style="width:621px;height:235px;border:0;"></p>
+<p><img src="images/Neuer Block.PNG" alt="Neuer Block" style="width:621px;height:325px;border:0;"></p>
 
   
 <h2><a id="Fal">7. Fallen von Blöcken</a></h2>
