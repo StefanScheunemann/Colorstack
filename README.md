@@ -28,7 +28,7 @@ Sobald kein Block mehr erstellt werden kann, weil das Spielfeld nach oben hin ge
 Die global verwendeten Variablen werden am Anfang deklariert.  
 Die globalen Variablen sind:
 
-<p><img src="images/Variablen.JPG" alt="Variablen" style="width:635px;height:307px;border:0;"></p>
+<p><img src="images/Variablen.jpg" alt="Variablen" style="width:635px;height:307px;border:0;"></p>
 
 <h2><a id="Spi">4. Spielfeld</a></h2>
 <p>Das Spielfeld ist in einzelne Felder unterteilt und die Blöcke, die als Panels definiert sind, besetzen die Felder. Dies geschieht dadurch, dass der Wert des Feldes verändert wird. Die Randfelder erhalten den Wert -2. Selbst wenn ein Block versucht dieses Feld zu besetzen wird der Wert des Feldes von -2 auf -1 verändert und das Feld gilt weiterhin als leer.<br>
