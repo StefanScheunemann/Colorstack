@@ -40,59 +40,13 @@ Im Code wird das Spielfeld als Arraylist behandelt, wodurch das Eintragen dieser
 <p>Die Steuerung geschieht durch vier Tastaturbefehle.<br>
 Die Blöcke können nach links und rechts mit "A" und "D" verschoben werden. Um den aktiven Block fallen zu lassen wird "S" verwendet. Wenn das Spiel pausiert werden soll wird die "Leertase" verwendet, durch diesen Befehl wird der Timer angehalten und der aktive Block bewegt sich nicht weiter.  
 Für die Steuerung wird die "KeyDown" Funktion verwendet. Mit diesem Befehl wird beim Eindrücken der Taste ein Befehl ausgelöst. In der Funktion wird durch eine If-Abfrage überprüft, ob bestimmte Befehle von der Tastatur gegeben werden</p>
-<code>
-    Private Sub cmdLeft_Click(sender As Object, e As EventArgs) Handles cmdLeft.Click
-        If F(PZ, PS - 1) = Leer Then ' Es wird überprüft, ob das Feld links neben dem Block leer ist
-            PL(PX).Left = PL(PX).Left - 20 ' Der Block wird um 20 Pixel verschoben
-            PS = PS - 1 ' Die neue Position wird in der Arraylist eingetragen
-        End If
-    End Sub
 
-    Private Sub cmdRight_Click(sender As Object, e As EventArgs) Handles cmdRight.Click
-        If F(PZ, PS + 1) = Leer Then ' Es wird überprüft, ob das Feld rechts neben dem Block leer ist
-            PL(PX).Left = PL(PX).Left + 20 ' Der Block wird um 20 Pixel verschoben
-            PS = PS + 1 ' Die neue Position wird in der Arraylsit eingetragen
-        End If
-    End Sub
-
-    Private Sub cmdDown_Click(sender As Object, e As EventArgs) Handles cmdDown.Click
-        Do While F(PZ + 1, PS) = Leer ' Es wird überprüft, ob das Feld unter dem Block leer ist
-            PL(PX).Top = PL(PX).Top + 20 ' Der Block wird um 20 Pixel nach unten verschoben
-            PZ = PZ + 1 ' Die neue Position wird in der Arraylist eingetragen
-        Loop ' Dieser Vorgang wird wiederholt, bis der Block nicht weiter nach unten verschoben werden kann
-        F(PZ, PS) = PX       ' Belegen und verändern des Wertes für das Feld in der Arraylist
-        AllePrüfen() ' Es wird die Routine aufgerufen, die überprüft, ob drei gleiche Blöcke nebeneinader liegen
-        NächstesPanel() ' Es wird die Routine aufgerufen, die einen neuen Block erzeugt
-    End Sub
-
-    Private Sub cmdPause_Click(sender As Object, e As EventArgs) Handles cmdPause.Click
-        timT.Enabled = Not timT.Enabled ' Der Timer wird deaktiviert, um das Spiel zu pausieren
-    End Sub
-</code>
+<p><img src="images/Steuerung.PNG" alt="Steuerung" style="width:420px;height:420px;border:0;"></p>
   
 <h2><a id="Ers">6. Erstellen von Blöcken</a></h2>
 <p>Die Blöcke werden als Panels behandelt, jedes Panel besitzt eine Größe von 20x20 Pixeln. Beim verschieben der Blöcke wird immer eine Positionsveränderung von 20 Pixeln verwendet, somit existieren acht feste Spalten, in denen sich Blöcke befinden können. Beim erstellen ist die Größe fest definiert, die Farbe wird zufällig ausgewählt. Aus einer Liste von acht möglichen Farben wird eine ausgewählt für den neuen Block. Das Spiel ist also zu keinem Zeitpunkt unfair, es gibt nicht mehr mögliche Farben als Spalten. Das Panel wird nun der Arraylist hinzugefügt und somit vermerkt, um es später wieder löschen zu können.</p>
 
-<code>
-Private Sub NächstesPanel()
-        Dim Farbe As Integer ' Die Variable für die Farbe wird verwendet
-        Dim p As New Panel ' Die Variable für Panel wird aufgerufen
-
-        PL.Add(p) ' Ein Panel wird hinzugefügt, die Eigenschaften müssen noch definiert werden
-
-        p.Location = New Point(100, 80) ' Das neue Panel wird platziert
-        p.Size = New Size(20, 20) ' Die Größe ist auf 20x20 Pixel festgelegt
-
-        Farbe = Math.Floor(Rnd() * 8) ' Die Farbe wird zufällig ausgewählt, durch die in den Variablen definierte Auswahl, alle acht Farben sollen verwendet werden
-        p.BackColor = FarbenFeld(Farbe) ' Die ausgewählte Farbe wird auf das Panel angewendet
-
-        Controls.Add(p) ' Das neue Panel wird zur Arraylist hinzugefügt
-
-        PX = PL.Count - 1 ' Das Panel erhält einen Eintrag im Index, um später wieder entfernt zu werden
-
-        PZ = 1 ' Zeile und Spalte des neuen Panels, es ligt direkt in der Mitte der ersten Zeile
-        PS = 5
-</code>
+<p><img src="images/Neuer Block.PNG" alt="Neuer Block" style="width:420px;height:420px;border:0;"></p>
 
 <p>Das Vermerken der Farbe ist wichtig, da durch diese später entschieden wird, ob das Panel aus dem Programm entladen wird.</p>
   
