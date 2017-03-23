@@ -1,5 +1,5 @@
 <h1>Colorstack</h1>
-<p>In diesem Projekt wird mithilfe von Visual Basic ein Spiel erstellt, dass dem bekannten Tetris ähnelt.</p>
+<p>In diesem Projekt wird mithilfe von Visual Basic ein Programm erstellt, dass auf jedem Windows PC verwendet werden kann.</p>
   
 <h2>Inhaltserzeichnis</h2>
 <ul>
