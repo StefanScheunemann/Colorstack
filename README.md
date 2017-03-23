@@ -3,58 +3,43 @@
   
 <h2>Inhaltserzeichnis</h2>
 <ul>
-<li>1. Colorstack</li>
-<li>2. Visual Basic</li>
-<li>3. Variablen</li>
-<li>4. Das Spielfeld</li>
-<li>5. Steuerung</li>
-<li>6. Erstellen von Blöcken</li>
-<li>7. Fallen von Blöcken</li>
-<li>8. Löschen von Blöcken</li>
-<li>9. Highscore</li>
-<li>10. Stundenprotokoll</li>
+<li><a href="#Col">1. Colorstack</a></li>
+<li><a href="#Vis">2. Visual Basic</a></li>
+<li><a href="#Var">3. Variablen</a></li>
+<li><a href="#Spi">4. Das Spielfeld</a></li>
+<li><a href="#Ste">5. Steuerung</a></li>
+<li><a href="#Ers">6. Erstellen von Blöcken</a></li>
+<li><a href="#Fal">7. Fallen von Blöcken</a></li>
+<li><a href="#Lös">8. Löschen von Blöcken</a></li>
+<li><a href="#Hig">9. Highscore</a></li>
+<li><a href="#Stu">10. Stundenprotokoll</a></li>
 </ul>
   
-<h2>1. Colorstack</h2>
-<p>In dem Spiel Colorstack ist es das Ziel, drei gleichfarbige Blöcke neben- oder übereinander zu platzieren. Die Steuerung erfolgt durch "A" und "D" um den aktiven Block nach links und rechts zu verschieben, mit "S" kann der Block sofort in die unterste mögliche Reihe verschoben werden. Mit "Leertaste" kann das Spiel pausiert werden.<br>
-Sobald drei gleichfarbige Blöcke neben- oder übereinander liegen werden diese entfernt und der Spieler erhält einen Punkt. Die Blockgeschwindigkeit steigt jedesmal wenn Blöcke entfernt werden und sobald kein Block mehr erstellt werden kann, weil das Spielfeld voll nach oben hin gefüllt ist, ist das Spiel vorbei.</p>
+<h2><a id="Col">1. Colorstack</a></h2>
+<p>In dem Spiel Colorstack ist es das Ziel, drei gleichfarbige Blöcke neben- oder übereinander zu platzieren. Die Steuerung erfolgt durch "A" und "D" um den aktiven Block nach links und rechts zu verschieben, mit "S" kann der Block sofort in die unterste mögliche Reihe verschoben werden. Mit "Leertaste" wird das Spiel pausiert.<br>
+Sobald drei gleichfarbige Blöcke neben- oder übereinander liegen werden diese entfernt und der Spieler erhält einen Punkt. Die Blockgeschwindigkeit steigt jedesmal, wenn Blöcke entfernt werden.<br>
+Sobald kein Block mehr erstellt werden kann, weil das Spielfeld nach oben hin gefüllt ist, ist das Spiel vorbei.</p>
 
 
-<h2>2. Visual Basic</h2>
-<p>ual Basic ist eine von Microsoft angebotene Programmiersprache, die in Visual Studio verwendet werden kann. Diese ähnelt C# in vielen Aspekten, statt nur reinem Code kann zusätzlich aber auch eine visuelle Darstellung des späteren Programms erstellt werden. Durch die von Visual Studio bereitgestellte Toolbox können Funktionen hinzugefügt werden, wie Buttons, Panels und Timer. Diese Funktionen werden direkt in den Code übernommen und es kann mit diesen normal weitergearbeitet werden, wie in C#.</p>
+<h2><a id="Vis">2. Visual Basic</a></h2>
+<p>Visual Basic ist eine von Microsoft angebotene Programmiersprache, die in Visual Studio verwendet werden kann. Diese ähnelt C# in vielen Aspekten, statt nur reinem Code kann aber auch eine visuelle Darstellung des späteren Programms erstellt werden. Durch die von Visual Studio bereitgestellte Toolbox können Funktionen hinzugefügt werden, wie Buttons, Panels und Timer. Diese Funktionen werden direkt in den Code übernommen und es kann mit diesen normal weitergearbeitet werden, wie in C#.</p>
   
-<h2>3. Variablen</h2>
+<h2><a id="Var">3. Variablen</a></h2>
 Die global verwendeten Variablen werden am Anfang deklariert.  
 Die globalen Variablen sind:
-<code>
-    Dim record As Integer = 0
-    Dim Playername As String = ""
-    Dim PX As Integer ' Index des aktiven Panels
-    Dim F(14, 9) As Integer ' Spielfeld mit Rand
-    Dim PZ As Integer ' Zeile des aktiven Panels
-    Dim PS As Integer ' Spalte des aktiven Panels
-    Dim level As Integer ' Schwierigkeitsgrad
-    Dim PL As New ArrayList ' leeres Spielfeld
-    Dim ColorField() As Color = {Color.Red, ' Verschiedene Farben der Blöcke
-        Color.Yellow,
-        Color.Green,
-        Color.Blue,
-        Color.Orange,
-        Color.Magenta,
-        Color.Black,
-        Color.White}
-    Const empty = -1 ' Feld leer
-    Const edge = -2 ' Randfeld
-</code>
 
-<h2>4. Spielfeld</h2>
-<p>Das Spielfeld ist in einzelne Felder unterteilt und die Blöcke, die als Panels definiert sind, besetzen die Felder. Dies geschieht dadurch, dass der Wert des Feldes verändert wird. Die Randfelder erhalten den Wert -2. Selbst wenn ein Block versucht dieses Feld zu besetzen wird der Wert des Feldes von -2 auf -1 verändert und das Feld gilt weiterhin als leer. Ein normales Feld, welches besetzt werden darf, besitzt normalerweise einen Wert von -1, wenn dieses nun besetzt wird verändert sich der Wert auf 0. Ein Feld mit dem Wert 0 wird nicht weiter besetzt und wird im späteren Verlauf überprüft, ob drei gleiche Blöcke nebeneinander liegen.<br>
+<p><img src="images/Variablen.JPG" alt="Variablen" style="width:635px;height:307px;border:0;"></p>
+
+<h2><a id="Spi">4. Spielfeld</a></h2>
+<p>Das Spielfeld ist in einzelne Felder unterteilt und die Blöcke, die als Panels definiert sind, besetzen die Felder. Dies geschieht dadurch, dass der Wert des Feldes verändert wird. Die Randfelder erhalten den Wert -2. Selbst wenn ein Block versucht dieses Feld zu besetzen wird der Wert des Feldes von -2 auf -1 verändert und das Feld gilt weiterhin als leer.<br>
+Ein normales Feld, welches besetzt werden darf, besitzt im leeren Zustand einen Wert von -1, wenn dieses nun besetzt wird verändert sich der Wert auf 0. Ein Feld mit dem Wert 0 wird nicht weiter besetzt und wird im späteren Verlauf darauf überprüft, ob drei gleiche Blöcke nebeneinander liegen.<br>
 Im Code wird das Spielfeld als Arraylist behandelt, wodurch das Eintragen dieser Werte ermöglicht wird.</p>
 
 
-<h2>5. Steuerung</h2>
-<p>Die Steuerung geschieht durch vier Buttons. Das verschieben der Blöcke wird durch jeweils einen Button für left und right gesteuert. Um den aktiven Block fallen zu lassen wird der Button "down" verwendet. Wenn das Spiel pausiert werden soll kann der "pause" Button genutzt werden, durch diesen wird der Timer angehalten und der aktive Block bewegt sich nicht weiter.  
-Durch Visual Basic kann man zuerst die visuelle Oberfläche des Programms erstellen, dabei wird die gegebene Toolbox verwendet. Die Buttons können im Code aufgerufen werden, die Position und Größe der Fläche werden im Code zusätzlich defieniert.</p>
+<h2><a id="Ste">5. Steuerung</a></h2>
+<p>Die Steuerung geschieht durch vier Tastaturbefehle.<br>
+Die Blöcke können nach links und rechts mit "A" und "D" verschoben werden. Um den aktiven Block fallen zu lassen wird "S" verwendet. Wenn das Spiel pausiert werden soll wird die "Leertase" verwendet, durch diesen Befehl wird der Timer angehalten und der aktive Block bewegt sich nicht weiter.  
+Für die Steuerung wird die "KeyDown" Funktion verwendet. Mit diesem Befehl wird beim Eindrücken der Taste ein Befehl ausgelöst. In der Funktion wird durch eine If-Abfrage überprüft, ob bestimmte Befehle von der Tastatur gegeben werden</p>
 <code>
     Private Sub cmdLeft_Click(sender As Object, e As EventArgs) Handles cmdLeft.Click
         If F(PZ, PS - 1) = Leer Then ' Es wird überprüft, ob das Feld links neben dem Block leer ist
@@ -85,7 +70,7 @@ Durch Visual Basic kann man zuerst die visuelle Oberfläche des Programms erstel
     End Sub
 </code>
   
-<h2>6. Erstellen von Blöcken</h2>
+<h2><a id="Ers">6. Erstellen von Blöcken</a></h2>
 <p>Die Blöcke werden als Panels behandelt, jedes Panel besitzt eine Größe von 20x20 Pixeln. Beim verschieben der Blöcke wird immer eine Positionsveränderung von 20 Pixeln verwendet, somit existieren acht feste Spalten, in denen sich Blöcke befinden können. Beim erstellen ist die Größe fest definiert, die Farbe wird zufällig ausgewählt. Aus einer Liste von acht möglichen Farben wird eine ausgewählt für den neuen Block. Das Spiel ist also zu keinem Zeitpunkt unfair, es gibt nicht mehr mögliche Farben als Spalten. Das Panel wird nun der Arraylist hinzugefügt und somit vermerkt, um es später wieder löschen zu können.</p>
 
 <code>
@@ -111,8 +96,9 @@ Private Sub NächstesPanel()
 
 <p>Das Vermerken der Farbe ist wichtig, da durch diese später entschieden wird, ob das Panel aus dem Programm entladen wird.</p>
   
-<h2>7. Fallen von Blöcken</h2>
-<p>Der aktive Block fällt um den definierten Betrag von 20 Pixeln wenn der Timer einen Tick durchlaufen hat. Zu Beginn dauert dies 0,5 Sekunden. Immer wenn Blöcke entfernt werden und das level um eins erhöht wird steigt der Schwierigkeitsgrad, dies wird durch eine Verringerung der Tick-Länge verursacht. Die Funktion dafür ist</p>
+<h2><a id="Fal">7. Fallen von Blöcken</a></h2>
+<p>Der aktive Block fällt um den definierten Betrag von 20 Pixeln wenn der Timer einen Tick durchlaufen hat. Zu Beginn dauert dies 0,5 Sekunden. Immer wenn Blöcke entfernt werden und das level um eins erhöht wird steigt der Schwierigkeitsgrad, dies wird durch eine Verringerung der Tick-Länge verursacht. Dafür wird eine Variable verwendet, die beim Löschen der Blöcke um eins erhöt wird. Mit dieser variable wird der Zeitintervall berrechnet.<br>
+In der Timer Funktion wird auch das Game Over Event behandelt, sobald ein Block die oberste Zeile berührt und nicht weiter fallen kann wirdt der Timer angehalten und eine "Game Over" Message Box erscheint.</p>
 <code>
             level = level + 1 ' Tempo erhöhen
             timer.Interval = 5000 / (level + 9)
@@ -121,7 +107,7 @@ Private Sub NächstesPanel()
 
 <p>Die vorherige Stufe wird um eins erhöht und das Intervall von 0,5 Sekunden durch die neue Stufe + 9 geteilt. Dadurch werden die Zeitintevalle pro Tick kontinuirlich kürzer und es wird schwieriger, die Blöcke richtig zu platzieren. Theoretisch können die Intervalle extrem kurz werden, ab einem bestimmten Punkt wird es aber schwierig, die Kontrolle zu behalten und das Spiel endet.</p>
 
-<h2>8. Löschen von Blöcken</h2>
+<h2><a id="Lös">8. Löschen von Blöcken</a></h2>
 <p>Um die Blöcke zu löschen muss zuerst festgestellt werden, ob drei gleichfarbige Blöcke neben- oder übereinander angeordnet sind. Dies wird in zwei Funktionen aufgeteilt, eine zum prüfen der nebeneinander liegenden Blöcke und eine für die Blöcke übereinander.<br>
 Eine weitere Funktion ist "Alle Prüfen", diese ruft "neben- und überprüfen" auf.</p>
 <p>Die Funktion zum nebeinander prüfen</p>
@@ -196,7 +182,7 @@ Um den Schwierigkeitsgrad kontinuirlich zu erhöhen wird nach jedem entfernen vo
     End Sub
     </code>
 
-<h2>9. Highscore</h2>
+<h2><a id="Hig">9. Highscore</a></h2>
 <p>Der Highscore wird in einer txt-Datei gespeichert und kann jedes mal aufgerufen werden, wenn das Spiel gestartet wird. Es wird immer nur der höchste Highscore gespeichert, die txt-Datei kann im Programmordner gefunden werden.<br>
 Es werden zwei Funktionen benutzt, um in der Datei schreiben zu können und um die Datei auslesen zu können.</p>
 
@@ -226,7 +212,7 @@ Es werden zwei Funktionen benutzt, um in der Datei schreiben zu können und um d
 ```
 
 
-<h2>10.Stundenprotokoll</h2>
+<h2><a id="Stu">10.Stundenprotokoll</a></h2>
 <h4>14.3.</h4>
 <p>Das System für das Löschen der Blöcke hat noch Fehler erzeugt, wenn durch nachrücken von Blöcken ein weiteres mal Blöcke entfernt werden können ist dies bisher nicht geschehen. Den Großteil der Stunde habe ich mit diesem Bug verbracht, die Lösung war es, am Ende der AllCheck Funktion ein weiteres mal diese Funktion aufzurufen. Falls keine weiteren Blöcke gelöscht werden können wird die If-Abfrage sofort beendet und ein neuer Block wird generiert.</p>
 
@@ -240,3 +226,6 @@ In der zweiten Stunde habe ich an der Dokumentation gearbeitet und die Erklärun
 <p>In dieser Stunde habe ich mich in die "KeyDown" Funktion eingelesen, diese wird <a href="https://msdn.microsoft.com/de-de/library/system.windows.forms.control.keydown(v=vs.110).aspx"> hier</a> erklärt. Es ist möglich, durch den "KeyChar" Befehl, direkte Tastatureingaben zu verwenden, wobei der KeyDown Befehl beim Anschlag der Taste den Befehl registriert. Wenn eine Tastenkombination verwendet werden soll muss eine eigene Funktion für diese geschrieben werden, in meinem Fall werden aber nur einfache Tastenanschläge benötigt.<br>
 Es existiert auch der Befehl "KeyPress", dieser verwendet aber keine Sonderzeichen, wie die Pfeile, Enter und Leertaste.<br>
 In meinem Fall war "KeyDown" besser geeignet, da die Leertaste zum pausieren des Spiels verwendet werden soll.<p>
+
+<h4>23.3.</h4>
+<p>Letzte Stunde vor der Abgabe des Projekts, die verbleibende Zeit wurde zum schreiben an der Dokumentation verwendet. Das Programm ist fast fertig, nur Formatierungen und Positionen der Textblöcke zum Anzeigen des Highscores werden noch verändert. Die Dokumentation ist auch fast fertig, in dieser Stunde wurden die Verlinkungen innerhalb der Dokumentation erstellt.</p> 
