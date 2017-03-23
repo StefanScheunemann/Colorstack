@@ -32,3 +32,10 @@ C:\Users\expec\Documents\GitHub\Tetris-Projekt\Colorstack\Colorstack\obj\Debug\C
 C:\Users\expec\Documents\GitHub\Tetris-Projekt\Colorstack\Colorstack\obj\Debug\Colorstack.exe
 C:\Users\expec\Documents\GitHub\Tetris-Projekt\Colorstack\Colorstack\obj\Debug\Colorstack.xml
 C:\Users\expec\Documents\GitHub\Tetris-Projekt\Colorstack\Colorstack\obj\Debug\Colorstack.pdb
+C:\Users\Stefan\Documents\GitHub\Tetris-Projekt\Colorstack\Colorstack\bin\Debug\Colorstack.exe
+C:\Users\Stefan\Documents\GitHub\Tetris-Projekt\Colorstack\Colorstack\bin\Debug\Colorstack.pdb
+C:\Users\Stefan\Documents\GitHub\Tetris-Projekt\Colorstack\Colorstack\bin\Debug\Colorstack.xml
+C:\Users\Stefan\Documents\GitHub\Tetris-Projekt\Colorstack\Colorstack\obj\Debug\Colorstack.vbprojResolveAssemblyReference.cache
+C:\Users\Stefan\Documents\GitHub\Tetris-Projekt\Colorstack\Colorstack\obj\Debug\Colorstack.Form1.resources
+C:\Users\Stefan\Documents\GitHub\Tetris-Projekt\Colorstack\Colorstack\obj\Debug\Colorstack.Resources.resources
+C:\Users\Stefan\Documents\GitHub\Tetris-Projekt\Colorstack\Colorstack\obj\Debug\Colorstack.vbproj.GenerateResource.Cache
