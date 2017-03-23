@@ -46,7 +46,7 @@ Wenn das Spiel pausiert werden soll wird die "Leertase" verwendet, durch diesen 
 Für die Steuerung wird die "KeyDown" Funktion verwendet. Mit diesem Befehl wird beim Eindrücken der Taste ein Befehl ausgelöst. In der Funktion wird durch eine If-Abfrage überprüft, ob bestimmte Befehle von der Tastatur gegeben werden<br>
 Um nicht vier "KeyDown" Funktionen zu erstellen, ist es möglich in einer Funktion durch mehrere If-Abfragen alle Keyboard Inputs direkt nacheinander zu behandeln.</p>
 
-<p><img src="images/Steuerung.PNG" alt="Steuerung" style="width:420px;height:420px;border:0;"></p>
+<p><img src="images/Steuerung.PNG" alt="Steuerung" style="width:694px;height:435px;border:0;"></p>
   
 <h2><a id="Ers">6. Erstellen von Blöcken</a></h2>
 <p>Die Blöcke werden als Panels behandelt, jedes Panel besitzt eine Größe von 20x20 Pixeln.<br>
@@ -56,7 +56,7 @@ Das Spiel ist also zu keinem Zeitpunkt unfair, es gibt nicht mehr mögliche Farb
 Die Farbe ist als BackColor defniert, somit kann durch spätere Funktionen die Farbe ausgelesen werden.<br>
 Jeder neue Block wird in der ersten Zeile in der fünften Spalte erzeugt, damit eine Kontinuität entsteht.</p>
 
-<p><img src="images/Neuer Block.PNG" alt="Neuer Block" style="width:420px;height:420px;border:0;"></p>
+<p><img src="images/Neuer Block.PNG" alt="Neuer Block" style="width:621px;height:235px;border:0;"></p>
 
   
 <h2><a id="Fal">7. Fallen von Blöcken</a></h2>
@@ -67,7 +67,7 @@ Die Formel für das Fallen der Blöcke ist 5000 Millisekunden / (level + 9)<br>
 Zu Anfang ist das level = 1, wenn die Variable "level" steigt wird auch das Zeitintervall kürzer.<br>
 In der Timer Funktion wird auch das Game Over Event behandelt, sobald ein Block die oberste Zeile berührt und nicht weiter fallen kann wirdt der Timer angehalten und eine "Game Over" Message Box erscheint.</p>
 
-<p><img src="images/Timer3.PNG" alt="Timer3" style="width:420px;height:420px;border:0;"></p>
+<p><img src="images/Timer3.PNG" alt="Timer3" style="width:635px;height:175px;border:0;"></p>
 
 
 <h2><a id="Lös">8. Löschen von Blöcken</a></h2>
@@ -81,12 +81,12 @@ Zusätzlich werden die Panels über den gelöschten Panels um 20 Pixel, also ein
 Danach geht die Funktion in eine Lop, wird also nochmal von vorne gestartet, um zu prüfen, ob durch die nachgerückten Panels wieder drei gleichfarbige nebeneinander liegen.<br>
 Ist dies nicht der Fall wird die Funktion beendet.</p>
 
-<p><img src="images/Überprüfen2.PNG" alt="Überprüfen2" style="width:420px;height:420px;border:0;"></p>
+<p><img src="images/Überprüfen2.PNG" alt="Überprüfen2" style="width:922px;height:535px;border:0;"></p>
 
 <p>Die Funktion zum übereinander prüfen ist genauso aufgebaut wie die Funktion zum nebeneinadner prüfen, nur die Funktion zum Nachrücken der Blöcke ist nicht in dieser.<br>
 Da beide Funktionen parallel laufen ist es nicht nötig, auch in dieser Funktion das Nachrücken der Panels einzuabuen.</p>
 
-<p><img src="images/Überprüfen3.PNG" alt="Überprüfen3" style="width:420px;height:420px;border:0;"></p>
+<p><img src="images/Überprüfen3.PNG" alt="Überprüfen3" style="width:914px;height:340px;border:0;"></p>
 
 <p>Diese beiden Funktionen werden in einer weiteren Funktion aufgerufen.<br>
 Jede einzelne Zeile und Spalte wird durch die Funktionen "Beside" und "Above" überprüft, sobald keine weiteren Panels zum löschen identifiziert werden, wird die Funktion beendet und ein neuer Block wird erzeugt.<br>
@@ -94,7 +94,7 @@ Sobald eine der Funktionen Panels aus der Arraylist entfernt wird der Wert der V
 Für den Punktezähler wir ein Label verwenet, der Wert daraus wird am Ende für den Highscore verwendet.<br>
 Um den Schwierigkeitsgrad kontinuierlich zu erhöhen wird nach jedem entfernen von Panels durch die Funktionen der Zeitintervall des Timers verkürzt. Sobald das level steigt wird das Tick Intervall der Blöcke neu berechnet.
 
-<p><img src="images/Überprüfen1.PNG" alt="Überprüfen1" style="width:420px;height:420px;border:0;"></p>
+<p><img src="images/Überprüfen1.PNG" alt="Überprüfen1" style="width:717px;height:518px;border:0;"></p>
 
 <h2><a id="Hig">9. Highscore</a></h2>
 <p>Der Highscore wird in einer txt-Datei gespeichert und wird jedes mal aufgerufen werden, wenn das Spiel gestartet wird.<br>
@@ -105,14 +105,14 @@ Es werden zwei Funktionen benutzt, um in der Datei schreiben zu können und um d
 Dabei wird vom Punktestand ein Punkt abgezogen, da von Beginn an der Spieler einen Punkt hat, um auf 0,5 Sekunden pro Tick für das Fallen der Blöcke zu kommen.<br>
 Der Spielername und die Punktezahl werden in der txt-Datei in zwei getrennten Zeilen gespeichert, dadurch kann der Wert später einfacher ausgelesen werden.</p>
 
-<p><img src="images/Highscore1.PNG" alt="Highscore1" style="width:420px;height:420px;border:0;"></p>
+<p><img src="images/Highscore1.PNG" alt="Highscore1" style="width:707px;height:176px;border:0;"></p>
 
 <p>Wenn das Programm gestartet wird, wird der aktuelle Highscore aus der txt-Datei geladen und im Spiel angezeigt.<br>
 Dafür werden zwei Labels verwendet, Spielername und Highscore werden getrennt geladen.<br>
 Die Funktion dafür befindet sich im Form1Loader, es wird also ausgeführt, wenn das Programm gestartet wird.<br>
 Die Werte aus der txt-Datei werden geladen und in die vorhandenen Labels eingefügt.</p>
 
-<p><img src="images/Highscore2.PNG" alt="Highscore2" style="width:420px;height:420px;border:0;"></p>
+<p><img src="images/Highscore2.PNG" alt="Highscore2" style="width:552px;height:123px;border:0;"></p>
 
 <h2><a id="Stu">10.Stundenprotokoll</a></h2>
 <h4>21.2.2017</h4>
