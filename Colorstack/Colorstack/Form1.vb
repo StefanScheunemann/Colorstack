@@ -22,7 +22,7 @@
         Dim Row, Col As Integer
         Dim HighscoreList As Integer
 
-        Me.Size = New Size(300, 440) ' Größe und Ort
+        Me.Size = New Size(220, 440) ' Größe und Ort
         PanLinks.Size = New Size(1, 260)
         PanLinks.Location = New Point(20, 80)
         PanRechts.Size = New Size(1, 260)
@@ -32,9 +32,9 @@
         Counter.Size = New Size(40, 28)
         Counter.Location = New Point(90, 350)
         Highscore.Size = New Size(80, 20)
-        Highscore.Location = New Point(150, 15)
+        Highscore.Location = New Point(30, 50)
         BestPlayer.Size = New Size(80, 20)
-        BestPlayer.Location = New Point(150, 50)
+        BestPlayer.Location = New Point(30, 30)
 
 
         HighscoreList = FreeFile()
