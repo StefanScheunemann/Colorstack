@@ -21,7 +21,8 @@ Sobald drei gleichfarbige Blöcke neben- oder übereinander liegen werden diese 
 Sobald kein Block mehr erstellt werden kann, weil das Spielfeld nach oben hin gefüllt ist, ist das Spiel vorbei.</p>
 
 <p>Im Ordner "Colorstack Installation" befindet sich eine Setup.exe, durch diese kann das Programm installiert werden.<br>
-Das Programm funktioniert auf jedem PC, der Windows verwendet.</p>
+Aktuell funktioniert der Installer nicht, das Programm gibt einen Fehler bei der Installation aus.<br>
+Das Problem ist bekannt doch habe Ich es noch nicht geschafft, es zu lösen.</p>
 
 
 <h2><a id="Vis">2. Visual Basic</a></h2>
