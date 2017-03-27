@@ -13,7 +13,7 @@
 <li><a href="#Lös">8. Löschen von Blöcken</a></li>
 <li><a href="#Hig">9. Highscore</a></li>
 <li><a href="#Stu">10. Stundenprotokoll</a></li>
-<li><a hreg="Que">11. Quellen</a></li>
+<li><a href="Que">11. Quellen</a></li>
 </ul>
   
 <h2><a id="Col">1. Colorstack</a></h2>
