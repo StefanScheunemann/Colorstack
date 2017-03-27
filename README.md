@@ -168,6 +168,6 @@ In meinem Fall war "KeyDown" besser geeignet, da die Leertaste zum pausieren des
 <ul>
 <li><a href ="https://msdn.microsoft.com/de-de/library/system.collections.arraylist(v=vs.110).aspx">Arraylist Erklärung</a></li>
 <li><a href ="https://msdn.microsoft.com/de-de/library/ke6sh835.aspx">Variablen Erkärung</a></li>
-<li><a href ="https://msdn.microsoft.com/de-de/library/6ka1wd3w(v=vs.110).aspx"></a>txt-File Erklärung</li>
+<li><a href ="https://msdn.microsoft.com/de-de/library/6ka1wd3w(v=vs.110).aspx">txt-File Erklärung</a></li>
 <li><a href ="https://msdn.microsoft.com/de-de/library/system.windows.forms.control.keydown(v=vs.110).aspx">KeyDown Erkärung</a></li>
 <li><a href="http://openbook.rheinwerk-verlag.de/einstieg_vb_2010/einstieg_vb_2010_kap_11_001.html">Tetris Tutorial für Visual Basic</a></li>
